@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/useLanguage";
 
 export default function Anasayfa() {
+  const { t } = useLanguage();
+
   return (
     <>
       <section className="main-hero">
         <div className="hero-overlay">
           <div className="hero-content">
-            <h1>Dijital Vatan'ın Temelini Biz Atıyoruz</h1>
+            <h1>{t.anasayfa.baslik}</h1>
             <Link to="/hakkimizda" className="btn-primary">
-              Devamı
+              {t.anasayfa.devami}
             </Link>
           </div>
         </div>
@@ -17,26 +20,21 @@ export default function Anasayfa() {
       <section className="section-global">
         <div className="global-container">
           <div className="global-text-side">
-            <h2>CDC Teknoloji — Veri Merkezi Çözümleri</h2>
-            <p>
-              Veri merkezi kurulumunda uçtan uca uzmanlık. Tasarım, inşaat, elektrik-mekanik
-              altyapı, beyaz alan kurulumu ve devreye almadan işletmeye kadar tüm süreci tek
-              çatı altında yöneten, Türkiye'nin anahtar teslim veri merkezi teknoloji
-              şirketidir.
-            </p>
+            <h2>{t.anasayfa.sirketBaslik}</h2>
+            <p>{t.anasayfa.sirketAciklama}</p>
             <div className="hero-stats">
               <div className="stat-pill">
-                <strong>5</strong> Aktif Proje
+                <strong>5</strong> {t.anasayfa.aktifProje}
               </div>
               <div className="stat-pill">
-                <strong>~20 MW+</strong> Toplam Güç
+                <strong>~20 MW+</strong> {t.anasayfa.toplamGuc}
               </div>
               <div className="stat-pill">
                 <strong>Tier-III & LEED</strong> Standartları
               </div>
             </div>
             <Link to="/cozumler" className="btn-secondary">
-              Çözümlerimiz
+              {t.anasayfa.cozumlerimiz}
             </Link>
           </div>
           <div className="global-image-side">

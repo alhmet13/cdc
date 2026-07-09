@@ -1,12 +1,40 @@
-import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  NavLink,
+  useNavigate,
+} from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider";
+import { PrivateRoute } from "./components/PrivateRoute";
+import { useAuth } from "./context/useAuth";
+import { api } from "./api/client";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import News from "./pages/News";
+import Login from "./pages/Login";
+import {
+  LayoutDashboard,
+  FolderKanban,
+  Newspaper,
+  Globe,
+  LogOut,
+  KeyRound,
+} from "lucide-react";
+import ChangePassword from "./pages/ChangePassword";
 
 function AdminLayout() {
+  const { setIsAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await api.auth.logout();
+    setIsAuthenticated(false);
+    navigate("/login");
+  };
+
   return (
     <div className="admin-container">
-      {/* Sidebar navigation */}
       <aside className="sidebar">
         <div className="sidebar-logo">
           <img
@@ -28,7 +56,7 @@ function AdminLayout() {
             }
             end
           >
-            <span style={{ fontSize: "1.2rem" }}>📊</span>
+            <LayoutDashboard size={19} strokeWidth={2} />
             <span>Kontrol Paneli</span>
           </NavLink>
           <NavLink
@@ -37,7 +65,7 @@ function AdminLayout() {
               `sidebar-link ${isActive ? "active" : ""}`
             }
           >
-            <span style={{ fontSize: "1.2rem" }}>📁</span>
+            <FolderKanban size={19} strokeWidth={2} />
             <span>Projeler</span>
           </NavLink>
           <NavLink
@@ -46,7 +74,7 @@ function AdminLayout() {
               `sidebar-link ${isActive ? "active" : ""}`
             }
           >
-            <span style={{ fontSize: "1.2rem" }}>📰</span>
+            <Newspaper size={19} strokeWidth={2} />
             <span>Haberler</span>
           </NavLink>
         </nav>
@@ -56,20 +84,33 @@ function AdminLayout() {
             href="http://localhost:5173"
             target="_blank"
             rel="noreferrer"
-            className="view-site-btn"
+            className="sidebar-link"
           >
-            <span>🌐</span>
+            <Globe size={19} strokeWidth={2} />
             <span>Siteyi Görüntüle</span>
           </a>
+          <NavLink
+            to="/change-password"
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <KeyRound size={19} strokeWidth={2} />
+            <span>Şifre Değiştir</span>
+          </NavLink>
+          <button className="sidebar-link logout-link" onClick={handleLogout}>
+            <LogOut size={19} strokeWidth={2} />
+            <span>Çıkış Yap</span>
+          </button>
         </div>
       </aside>
 
-      {/* Main content display */}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/news" element={<News />} />
+          <Route path="/change-password" element={<ChangePassword />} />
         </Routes>
       </main>
     </div>
@@ -79,7 +120,19 @@ function AdminLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AdminLayout />
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/*"
+            element={
+              <PrivateRoute>
+                <AdminLayout />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

@@ -3,7 +3,6 @@ import Layout from "./components/Layout";
 import Anasayfa from "./pages/Anasayfa";
 import Hakkimizda from "./pages/Hakkimizda";
 import Cozumler from "./pages/Cozumler";
-import CozumDetay from "./pages/CozumDetay";
 import Projeler from "./pages/Projeler";
 import Haberler from "./pages/Haberler";
 import AdminLayout from "./pages/admin/AdminLayout";
@@ -19,7 +18,6 @@ function App() {
           <Route path="/" element={<Anasayfa />} />
           <Route path="/hakkimizda" element={<Hakkimizda />} />
           <Route path="/cozumler" element={<Cozumler />} />
-          <Route path="/cozumler/:slug" element={<CozumDetay />} />
           <Route path="/projeler" element={<Projeler />} />
           <Route path="/haberler" element={<Haberler />} />
         </Route>

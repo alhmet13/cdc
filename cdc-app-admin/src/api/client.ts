@@ -4,6 +4,7 @@ const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:4101";
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
+    credentials: "include",
     headers: { "Content-Type": "application/json", ...options?.headers },
     ...options,
   });
@@ -27,6 +28,19 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 }
 
 export const api = {
+  auth: {
+    login: (data: { username: string; password: string }) =>
+      request<void>("/v1/auth/login", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+    logout: () => request<void>("/v1/auth/logout", { method: "POST" }),
+    changePassword: (data: { currentPassword: string; newPassword: string }) =>
+      request<void>("/v1/auth/change-password", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+  },
   projeler: {
     list: () => request<Proje[]>("/v1/projects/our-projects"),
     get: (id: string) => request<Proje>(`/v1/projects/find/${id}`),

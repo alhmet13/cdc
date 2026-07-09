@@ -1,4 +1,6 @@
-/* Genel Sıfırlamalar */
+/* ============================================================
+   GENEL SIFIRLAMA
+   ============================================================ */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +8,9 @@ body {
   color: #333333;
 }
 
-/* Navbar Düzeni */
+/* ============================================================
+   NAVBAR
+   ============================================================ */
 .navbar-bg {
   background: linear-gradient(
     to right,
@@ -28,7 +32,7 @@ body {
 }
 
 .logo img {
-  height: 45px;
+  height: 150px;
   display: block;
 }
 
@@ -53,100 +57,75 @@ body {
   opacity: 0.8;
 }
 
+.lang-selector {
+  font-weight: bold;
+}
+
 .lang-selector.muted {
   opacity: 0.5;
   cursor: default;
 }
 
-.lang-selector {
-  font-weight: bold;
+.active-link {
+  text-decoration: underline;
+  font-weight: 700 !important;
 }
 
-/* --- YENİ EKLENEN BÖLÜMLER --- */
-
-/* 1. Büyük Görsel (Hero Section) Alanı */
-.main-hero {
-  /* Arka plana koyacağın resmi public klasörüne 'hero-bg.jpg' ismiyle atarsan burası otomatik çeker */
-  background-image: url("https://picsum.photos/id/1044/1920/800");
-  background-size: cover;
-  background-position: center;
-  height: 550px; /* Görseldeki gibi heybetli bir yükseklik */
-  position: relative;
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
 }
 
-/* Resmin üstüne koyu bir katman atıyoruz ki beyaz yazılar rahat okunsun */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* %40 siyahlık perdesi */
-  display: flex;
-  align-items: center; /* İçerikleri dikeyde ortala */
-}
-
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 40px;
-}
-
-.hero-content h1 {
-  color: #ffffff;
-  font-size: 48px; /* Büyük ve vurucu yazı */
-  font-weight: 700;
-  margin: 0 0 25px 0;
-  max-width: 600px; /* Yazının çok uzayıp ekranı kapatmasını önler */
-  line-height: 1.2;
-}
-
-/* 2. Global Sistem Entegratörü Alanı (Görsel 2) */
-.section-global {
-  padding: 80px 40px;
+.hamburger-line {
+  display: block;
+  width: 25px;
+  height: 2px;
   background-color: #ffffff;
+  border-radius: 2px;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
 }
 
-.global-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Mobil menü */
+.mobile-nav {
   display: flex;
-  gap: 50px; /* Yazı ve resim arasındaki boşluk */
-  align-items: center;
+  flex-direction: column;
+  padding: 12px 40px 16px 40px;
+  gap: 4px;
 }
 
-.global-text-side {
-  flex: 1; /* Ekranın yarısını kaplasın */
-}
-
-.global-text-side h2 {
-  font-size: 36px;
-  color: #111111;
-  margin: 0 0 20px 0;
-}
-
-.global-text-side p {
+.mobile-nav a {
+  color: #ffffff;
+  text-decoration: none;
   font-size: 16px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0 0 30px 0;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.global-image-side {
-  flex: 1; /* Ekranın diğer yarısını kaplasın */
+.mobile-nav a:last-of-type {
+  border-bottom: none;
 }
 
-.global-image-side img {
-  width: 100%;
-  border-radius: 6px; /* Hafif oval köşeler */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.mobile-lang {
+  display: flex;
+  gap: 16px;
+  padding-top: 12px;
 }
 
-/* BUTON STİLLERİ (Mikrolink Kırmızısı) */
+/* ============================================================
+   BUTONLAR
+   ============================================================ */
 .btn-primary,
 .btn-secondary {
-  background-color: #a31d24; /* Orijinal mikrolink / kurumsal koyu kırmızı */
+  background-color: #a31d24;
   color: white;
   border: none;
   padding: 12px 35px;
@@ -155,46 +134,21 @@ body {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
-  background-color: #821419; /* Üzerine gelince bir tık daha koyulaşsın */
+  background-color: #821419;
 }
 
-/* Alt kısımdaki Projeler/Haberler Grid Yapısı İçin Standart Kutu */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 40px;
-}
-
-.section-title {
-  font-size: 28px;
-  margin: 40px 0 20px 0;
-  border-left: 5px solid #a31d24;
-  padding-left: 10px;
-}
-
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid #eee;
-}
-
-/* --- YENİ BEYAZ-KIRMIZI SADE FOOTER STİLLERİ --- */
-
+/* ============================================================
+   FOOTER
+   ============================================================ */
 .site-footer {
-  background-color: #eb1c23; /* İstediğin canlı kırmızı renk */
-  color: #fdfdfd; /* İstediğin beyaz yazı rengi */
+  background-color: #eb1c23;
+  color: #fdfdfd;
   padding: 50px 0 40px 0;
   font-size: 14px;
 }
@@ -213,34 +167,28 @@ body {
 
 .contact-item {
   margin: 0;
-  color: #fdfdfd; /* Yazıların rengi tam beyaz */
+  color: #fdfdfd;
   font-weight: 500;
 }
 
 .contact-item a {
-  color: #fdfdfd; /* Linklerin rengi de tam beyaz */
+  color: #fdfdfd;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s;
 }
 
 .contact-item a:hover {
-  border-bottom: 1px solid #fdfdfd; /* Üzerine gelince zarif alt çizgi çıksın */
+  border-bottom: 1px solid #fdfdfd;
 }
 
 .footer-policies {
   margin-top: 15px;
-  color: rgba(
-    253,
-    253,
-    253,
-    0.7
-  ); /* Aydınlatma metni hafif şeffaf beyaz olsun ki ana bilgiler patlasın */
+  color: rgba(253, 253, 253, 0.7);
   font-size: 13px;
   cursor: pointer;
 }
 
-/* Sosyal Medya İkonları */
 .footer-socials {
   margin-top: 25px;
   display: flex;
@@ -266,213 +214,12 @@ body {
 
 .social-icon:hover {
   background-color: #fdfdfd;
-  color: #eb1c23; /* Üzerine gelince ters yüz olsun (kırmızı ikon, beyaz arka plan) */
+  color: #eb1c23;
 }
 
-/* Hakkımızda Sayfası İçin Ek CSS Ayarları */
-.hakkimizda-page {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.borderless {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-/* Aktif link belirteci (Görseldeki gibi altı çizili veya vurgulu yapmak istersen) */
-.active-link {
-  text-decoration: underline;
-  font-weight: 700 !important;
-}
-
-/* İki Sütunlu Grid (Tarihçe ve Vizyon) */
-.history-vision-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 40px;
-  padding: 40px 0;
-  border-top: 1px solid #eee;
-}
-
-.history-vision-grid h3,
-.branding-grid h3 {
-  font-size: 24px;
-  color: #111;
-  margin-bottom: 35px;
-  position: relative;
-}
-
-/* Jenerik Kurumsal Kırmızı Zaman Çizelgesi (Timeline) */
-.timeline-container {
-  position: relative;
-  padding: 45px 0;
-}
-
-.timeline-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: #a31d24; /* Kurumsal koyu kırmızı çizgi */
-  transform: translateY(-50%);
-}
-
-.timeline-row {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  z-index: 2;
-}
-
-.timeline-node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 100px;
-}
-
-.node-dot {
-  width: 14px;
-  height: 14px;
-  background-color: #ffffff;
-  border: 4px solid #a31d24;
-  border-radius: 50%;
-  margin: 10px 0;
-}
-
-.node-year-top,
-.node-text-top {
-  position: absolute;
-  bottom: 25px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.node-year-bottom,
-.node-text-bottom {
-  position: absolute;
-  top: 25px;
-  font-weight: 500;
-  color: #666;
-  text-align: center;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-/* Vizyon / İkon Kutuları (Sağ Bölüm) */
-.stats-mini-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.stat-mini-card {
-  background: #fbfbfb;
-  border: 1px solid #f0f0f0;
-  padding: 20px;
-  border-radius: 6px;
-  text-align: center;
-}
-
-.stat-icon {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.stat-number {
-  font-size: 20px;
-  font-weight: 700;
-  color: #a31d24;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: #888;
-}
-
-/* Rakamlar & Alt Şirketler Alt Bloğu */
-.branding-stats-section {
-  margin-top: 40px;
-  padding: 40px 0 80px 0;
-  border-top: 1px solid #eee;
-}
-
-.branding-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 40px;
-}
-
-.stats-row {
-  display: flex;
-  gap: 20px;
-}
-
-.stat-large-box {
-  flex: 1;
-  background: #fff;
-  border: 1px solid #eaeaea;
-  padding: 30px 20px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
-}
-
-.icon-circle {
-  width: 50px;
-  height: 50px;
-  background: #fdf2f2;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-.stat-large-box h4 {
-  margin: 0;
-  font-size: 24px;
-  color: #a31d24;
-}
-
-.stat-large-box p {
-  margin: 5px 0 0 0;
-  color: #666;
-}
-
-/* Faaliyet Logo Grid'i */
-.logos-brand-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 15px;
-}
-
-.brand-logo-card {
-  border: 1px solid #eef0f2;
-  border-radius: 6px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  height: 60px;
-}
-
-.brand-logo-card img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* Sayfa genel düzeni */
+/* ============================================================
+   SAYFA GENEL DÜZENİ
+   ============================================================ */
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -502,7 +249,7 @@ body {
 
 .section-block h2 {
   font-size: 26px;
-  color: #111;
+  color: #eb1c23;
   margin: 0 0 24px 0;
 }
 
@@ -511,6 +258,185 @@ body {
   line-height: 1.7;
   color: #555;
   margin-top: 20px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin: 40px 0 20px 0;
+  border-left: 5px solid #a31d24;
+  padding-left: 10px;
+}
+
+/* ============================================================
+   KART VE GRİD
+   ============================================================ */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-arrow {
+  color: #a31d24;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+}
+
+.status-msg {
+  color: #666;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+.status-msg.error {
+  color: #a31d24;
+  background: #fdf2f2;
+}
+
+/* ============================================================
+   ANASAYFA
+   ============================================================ */
+.main-hero {
+  background-image: url("https://picsum.photos/id/1044/1920/800");
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.hero-content h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+  max-width: 600px;
+  line-height: 1.2;
+}
+
+.section-global {
+  padding: 80px 40px;
+  background-color: #ffffff;
+}
+
+.global-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.global-text-side {
+  flex: 1;
+}
+
+.global-text-side h2 {
+  font-size: 36px;
+  color: #111111;
+  margin: 0 0 20px 0;
+}
+
+.global-text-side p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 30px 0;
+}
+
+.global-image-side {
+  flex: 1;
+}
+
+.global-image-side img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-pill {
+  background: #fdf2f2;
+  border: 1px solid #f0d0d0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.stat-pill strong {
+  color: #a31d24;
+}
+
+/* ============================================================
+   HAKKIMIZDA
+   ============================================================ */
+.hakkimizda-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.two-col-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.content-list {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.content-list.detailed li {
+  margin-bottom: 8px;
 }
 
 .stats-grid {
@@ -563,27 +489,10 @@ body {
   margin-bottom: 24px;
 }
 
-.two-col-text {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-.content-list {
-  margin: 0;
-  padding-left: 20px;
-  line-height: 1.8;
-  color: #444;
-}
-
-.content-list.detailed li {
-  margin-bottom: 8px;
-}
-
+/* Timeline */
 .timeline-vertical {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-left: 3px solid #a31d24;
   margin-left: 8px;
 }
@@ -594,7 +503,6 @@ body {
   gap: 16px;
   align-items: start;
   padding: 16px 0 16px 16px;
-  position: relative;
 }
 
 .timeline-year {
@@ -618,71 +526,54 @@ body {
   line-height: 1.6;
 }
 
-.hero-stats {
+/* ============================================================
+   ÇÖZÜMLER
+   ============================================================ */
+.cozumler-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.cozumler-col {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cozum-card {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  margin-bottom: 24px;
 }
 
-.stat-pill {
-  background: #fdf2f2;
-  border: 1px solid #f0d0d0;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  color: #555;
+.cozum-card-baslik {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+  padding-left: 12px;
+  border-left: 4px solid #a31d24;
 }
 
-.stat-pill strong {
-  color: #a31d24;
-}
-
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.card-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.card-arrow {
-  color: #a31d24;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 12px;
-  display: block;
-}
-
-.back-link {
-  color: #a31d24;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  display: inline-block;
-  margin-bottom: 16px;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
-.status-msg {
-  color: #666;
-  padding: 16px;
-  background: #f9f9f9;
+.cozum-card-resim {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
   border-radius: 6px;
 }
 
-.status-msg.error {
-  color: #a31d24;
-  background: #fdf2f2;
+.cozum-card-ozet {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
 }
 
+/* ============================================================
+   PROJELER
+   ============================================================ */
 .proje-card {
   padding: 0;
   overflow: hidden;
@@ -713,7 +604,6 @@ body {
 }
 
 .durum-badge {
-  background: #a31d24;
   color: white;
   font-size: 11px;
   font-weight: 600;
@@ -721,6 +611,14 @@ body {
   border-radius: 4px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.durum-yesil {
+  background-color: #2d7a2d;
+}
+
+.durum-sari {
+  background-color: #b8860b;
 }
 
 .proje-desc {
@@ -754,7 +652,22 @@ body {
   text-align: right;
 }
 
-/* Admin panel */
+.back-link {
+  color: #a31d24;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   ADMIN PANELİ
+   ============================================================ */
 .admin-wrapper {
   min-height: 100vh;
   background: #f5f5f5;
@@ -905,22 +818,47 @@ body {
   color: #a31d24;
 }
 
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-bg {
+    padding: 15px 20px;
+  }
+}
+
 @media (max-width: 768px) {
-  .two-col-text,
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .history-vision-grid,
-  .branding-grid {
-    grid-template-columns: 1fr;
-  }
-
   .hero-content h1 {
     font-size: 32px;
   }
 
+  .global-container {
+    flex-direction: column;
+  }
+
+  .section-global {
+    padding: 40px 20px;
+  }
+
   .page-container {
     padding: 24px 16px;
+  }
+
+  .two-col-text,
+  .form-grid,
+  .cozumler-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-nav {
+    padding: 12px 20px 16px 20px;
   }
 }

@@ -25,8 +25,11 @@ export interface Haber {
 export interface Cozum {
   slug: string;
   baslik: string;
+  baslikEn?: string;
   ozet: string;
-  icerik: string[];
+  ozetEn?: string;
+  resim?: string;
+  icerik?: string[];
   maddeler?: string[];
 }
 

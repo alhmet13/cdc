@@ -4,7 +4,11 @@ export const cozumler: Cozum[] = [
   {
     slug: "profesyonel-danismanlik",
     baslik: "Profesyonel Danışmanlık",
+    baslikEn: "Professional Consulting",
+    // resim:
     ozet: "Profesyonel mimari ekip ve özelleşmiş bütünleşik çözümlerle müşteri odaklı danışmanlık.",
+    ozetEn:
+      "Customer-focused consulting with a professional architectural team and specialized integrated solutions.",
     icerik: [
       "Profesyonel Mimari Ekip",
       "Özelleşmiş Bütünleşik Çözümler",
@@ -14,7 +18,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "zengin-tasarim-kaynaklari",
     baslik: "Zengin Tasarım Kaynakları",
+    baslikEn: "Rich Design Resources",
     ozet: "BIM, UPTIME ATD sertifikalı ekip ve CFD analizi ile uluslararası tasarım standartları.",
+    ozetEn:
+      "International design standards with BIM, UPTIME ATD certified team and CFD analysis.",
     icerik: [
       "1. sınıf uluslararası tasarım firmaları ile çalışma",
       "UPTIME ATD sertifikalı ekip",
@@ -25,7 +32,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "akilli-isletim",
     baslik: "Akıllı İşletim",
+    baslikEn: "Smart Operations",
     ozet: "7/24 bakım, onarım ve işletme desteği; farklı DCIM çözümleri ile tecrübe.",
+    ozetEn:
+      "24/7 maintenance, repair and operations support; experience with various DCIM solutions.",
     icerik: [
       "7/24 bakım, onarım ve işletme desteği",
       "Farklı DCIM çözümleri ile tecrübe",
@@ -38,7 +48,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "insaat-bim",
     baslik: "İnşaat & BIM Modelleme",
+    baslikEn: "Construction & BIM Modeling",
     ozet: "65+ yıllık inşaat tecrübesi ve BIM tabanlı modelleme yetkinlikleri.",
+    ozetEn:
+      "65+ years of construction experience and BIM-based modeling capabilities.",
     icerik: [
       "65+ yıllık tecrübe; bugüne kadar yüzlerce proje",
       "Farklı birçok ülkede önemli projeler gerçekleştirme",
@@ -60,7 +73,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "elektrik",
     baslik: "Elektrik",
+    baslikEn: "Electrical",
     ozet: "Trafo seviyesinden itibaren veri merkezi enerji altyapısının uçtan uca tasarımı ve uygulaması.",
+    ozetEn:
+      "End-to-end design and implementation of data center energy infrastructure from transformer level.",
     maddeler: [
       "Trafo seviyesinden başlayarak veri merkezi enerji altyapısının uçtan uca tasarımı ve uygulaması",
       "TIER standartlarına uygun enerji dağıtımı ve yedeklilik kurgusu",
@@ -85,7 +101,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "mekanik",
     baslik: "Mekanik & Soğutma",
+    baslikEn: "Mechanical & Cooling",
     ozet: "Yüksek verimlilik ve süreklilik odaklı entegre soğutma ile yangın koruma sistemleri.",
+    ozetEn:
+      "Integrated cooling and fire protection systems focused on high efficiency and continuity.",
     maddeler: [
       "Veri merkezi için yüksek verimlilik ve süreklilik odaklı entegre soğutma tasarımı ve uygulaması",
       "Chiller, klima üniteleri, borulama ve koridor (aisle) çözümlerinin bütüncül kurgusu",
@@ -108,7 +127,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "beyaz-alan",
     baslik: "Beyaz Alan",
+    baslikEn: "White Space",
     ozet: "Yüksek performanslı, esnek ve ölçeklenebilir network altyapısı tasarımı ve uygulaması.",
+    ozetEn:
+      "High-performance, flexible and scalable network infrastructure design and implementation.",
     maddeler: [
       "Regülasyonlara, kurumsal yönetişime ve endüstri standartlarına tam uyum",
       "Aktif ve pasif network altyapısının uçtan uca tasarımı ve uygulaması",
@@ -132,7 +154,10 @@ export const cozumler: Cozum[] = [
   {
     slug: "test-devreye-alma",
     baslik: "Test ve Devreye Alma",
+    baslikEn: "Testing & Commissioning",
     ozet: "L0–L5 seviyelerinde kapsamlı test ve devreye alma süreçleri.",
+    ozetEn:
+      "Comprehensive testing and commissioning processes at L0–L5 levels.",
     icerik: [
       "Veri merkezinin canlıya alınmadan önce tasarıma %100 uygunluğunun doğrulanması",
       "Konsept ve detay tasarıma uygunluk kontrolü",

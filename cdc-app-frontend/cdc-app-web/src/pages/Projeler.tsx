@@ -1,27 +1,45 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/client";
 import type { Proje } from "../types";
+import { useLanguage } from "../context/useLanguage";
+import type { Translations } from "../i18n/tr";
 
-function ProjeKart({ proje }: { proje: Proje }) {
+function ProjeKart({ proje, t }: { proje: Proje; t: Translations }) {
   const specs = [
-    { label: "Beyaz Alan", value: proje.beyazAlan },
-    { label: "Sertifikasyon", value: proje.sertifikasyon },
-    { label: "IT Gücü", value: proje.itGucu },
-    { label: "Toplam Kurulu Güç", value: proje.toplamKuruluGuc },
-    { label: "PUE", value: proje.pue },
-    { label: "Proje Süresi", value: proje.projeSuresi },
-    { label: "İnşaat Alanı", value: proje.toplamInsaatAlani },
+    { label: t.projeler.beyazAlan, value: proje.beyazAlan },
+    { label: t.projeler.sertifikasyon, value: proje.sertifikasyon },
+    { label: t.projeler.itGucu, value: proje.itGucu },
+    { label: t.projeler.toplamKuruluGuc, value: proje.toplamKuruluGuc },
+    { label: t.projeler.pue, value: proje.pue },
+    { label: t.projeler.projeSuresi, value: proje.projeSuresi },
+    { label: t.projeler.insaatAlani, value: proje.toplamInsaatAlani },
   ].filter((s) => s.value);
 
   return (
     <div className="card proje-card">
       {proje.projeResmi && (
-        <img src={proje.projeResmi} alt={proje.projeAdi} className="proje-card-img" />
+        <img
+          src={proje.projeResmi}
+          alt={proje.projeAdi}
+          className="proje-card-img"
+        />
       )}
       <div className="proje-card-body">
         <div className="proje-card-header">
           <h3>{proje.projeAdi}</h3>
-          {proje.durum && <span className="durum-badge">{proje.durum}</span>}
+          {proje.durum && (
+            <span
+              className={`durum-badge ${
+                ["tamamlandı", "zamanında teslim"].some((k) =>
+                  proje.durum!.toLowerCase().includes(k),
+                )
+                  ? "durum-yesil"
+                  : "durum-sari"
+              }`}
+            >
+              {proje.durum}
+            </span>
+          )}
         </div>
         {proje.projeDetayi && <p className="proje-desc">{proje.projeDetayi}</p>}
         {specs.length > 0 && (
@@ -43,6 +61,7 @@ export default function Projeler() {
   const [projeler, setProjeler] = useState<Proje[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     api.projeler
@@ -54,18 +73,20 @@ export default function Projeler() {
 
   return (
     <div className="page-container">
-      <h1 className="page-title">Referanslarımız</h1>
-      <p className="page-subtitle">Tamamlanan ve devam eden veri merkezi projelerimiz.</p>
-
-      {loading && <p className="status-msg">Yükleniyor...</p>}
-      {error && <p className="status-msg error">Hata: {error}</p>}
-      {!loading && !error && projeler.length === 0 && (
-        <p className="status-msg">Henüz proje eklenmemiş. Admin panelden ekleyebilirsiniz.</p>
+      <h1 className="page-title">{t.projeler.baslik}</h1>
+      <p className="page-subtitle">{t.projeler.altBaslik}</p>
+      {loading && <p className="status-msg">{t.projeler.yukleniyor}</p>}
+      {error && (
+        <p className="status-msg error">
+          {t.projeler.hata}: {error}
+        </p>
       )}
-
+      {!loading && !error && projeler.length === 0 && (
+        <p className="status-msg">{t.projeler.bos}</p>
+      )}
       <div className="grid-layout">
         {projeler.map((proje) => (
-          <ProjeKart key={proje.id} proje={proje} />
+          <ProjeKart key={proje.id} proje={proje} t={t} />
         ))}
       </div>
     </div>

@@ -1,16 +1,18 @@
 /* Custom CSS Design Tokens and Variables */
 :root {
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display:
+    "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* CDC Brand Colors */
-  --primary-color: #EB1C23;
+  --primary-color: #eb1c23;
   --primary-dark: #c0151b;
   --primary-light: rgba(235, 28, 35, 0.12);
-  --primary-gradient: linear-gradient(135deg, #EB1C23 0%, #c0151b 100%);
+  --primary-gradient: linear-gradient(135deg, #eb1c23 0%, #c0151b 100%);
 
   /* Light Background Palette */
-  --bg-page: #FDFDFD;
+  --bg-page: #fdfdfd;
   --bg-sidebar: #ffffff;
   --bg-card: #ffffff;
   --bg-card-hover: #fef3f3;
@@ -18,7 +20,7 @@
 
   /* Borders & Dividers */
   --border-color: #e5e7eb;
-  --border-focus: #EB1C23;
+  --border-focus: #eb1c23;
 
   /* Typography */
   --text-primary: #111827;
@@ -59,7 +61,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -164,31 +171,33 @@ a {
   padding-left: 11px;
 }
 
+/* ─── Sidebar Footer (Siteyi Görüntüle / Çıkış Yap) ───
+   Not: bu linkler .sidebar-link ile aynı taban stili
+   paylaşır, böylece üstteki menüyle hizalanır. */
 .sidebar-footer {
   padding: 16px 12px;
   border-top: 1px solid var(--border-color);
-}
-
-.view-site-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px;
-  width: 100%;
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: var(--transition-smooth);
-  background: transparent;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.view-site-btn:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+.sidebar-footer .sidebar-link {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  width: 100%;
+  text-align: left;
+}
+
+.logout-link {
+  color: #6b7280;
+}
+
+.logout-link:hover {
   background-color: var(--primary-light);
+  color: var(--text-secondary);
 }
 
 /* ─── Main Content ─── */
@@ -242,7 +251,7 @@ a {
 }
 
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -301,6 +310,13 @@ a {
 .btn-primary:hover {
   box-shadow: var(--shadow-red);
   transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary {
@@ -471,6 +487,7 @@ a {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   outline: none;
+  width: 100%;
   transition: var(--transition-smooth);
 }
 
@@ -497,7 +514,8 @@ textarea.form-control {
 }
 
 /* ─── Alerts ─── */
-.alert {
+.alert,
+.admin-msg {
   padding: 14px 18px;
   border-radius: var(--border-radius-md);
   margin-bottom: 20px;
@@ -508,21 +526,96 @@ textarea.form-control {
   animation: fadeIn 0.3s ease;
 }
 
-.alert-success {
+.alert-success,
+.admin-msg.success {
   background-color: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
   color: #065f46;
 }
 
-.alert-error {
+.alert-error,
+.admin-msg.error {
   background-color: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.25);
   color: #991b1b;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   LOGIN SAYFASI
+   Not: form-label / form-control / btn-primary yukarıdaki
+   genel sınıflardan miras alır, burada sadece sayfaya özel
+   layout ve vurgu farkları tanımlanır.
+   ============================================================ */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--bg-page) 0%,
+    var(--primary-light) 100%
+  );
+  padding: 20px;
+}
+
+.login-card {
+  background-color: var(--bg-card);
+  padding: 48px 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 400px;
+  border-top: 4px solid var(--primary-color);
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-logo img {
+  height: 70px;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.login-field {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 0.95rem;
 }
 
 /* ─── Responsive ─── */
@@ -531,8 +624,7 @@ textarea.form-control {
     width: 72px;
   }
   .sidebar-logo-texts,
-  .sidebar-link span:last-child,
-  .view-site-btn span:last-child {
+  .sidebar-link span:last-child {
     display: none;
   }
   .sidebar-logo {
@@ -558,4 +650,31 @@ textarea.form-control {
   .main-content {
     padding: 20px;
   }
+}
+
+.password-input-wrap {
+  position: relative;
+}
+
+.password-input-wrap .form-control {
+  padding-right: 42px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.password-toggle:hover {
+  color: var(--primary-color);
 }
