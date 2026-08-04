@@ -12,11 +12,13 @@ import { api } from "./api/client";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import News from "./pages/News";
+import Messages from "./pages/Messages";
 import Login from "./pages/Login";
 import {
   LayoutDashboard,
   FolderKanban,
   Newspaper,
+  Mail,
   Globe,
   LogOut,
   KeyRound,
@@ -77,6 +79,15 @@ function AdminLayout() {
             <Newspaper size={19} strokeWidth={2} />
             <span>Haberler</span>
           </NavLink>
+          <NavLink
+            to="/messages"
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <Mail size={19} strokeWidth={2} />
+            <span>Mesaj Kutusu</span>
+          </NavLink>
         </nav>
 
         <div className="sidebar-footer">
@@ -110,6 +121,7 @@ function AdminLayout() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/news" element={<News />} />
+          <Route path="/messages" element={<Messages />} />
           <Route path="/change-password" element={<ChangePassword />} />
         </Routes>
       </main>

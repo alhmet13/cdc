@@ -1,19 +1,21 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, useRef, type FormEvent } from "react";
 import { api } from "../api/client";
 import type { Proje } from "../types";
 
 const emptyForm = {
   projeAdi: "",
+  projeAdiEn: "",
   projeDetayi: "",
+  projeDetayiEn: "",
   projeResmi: "",
   beyazAlan: "",
   sertifikasyon: "",
   itGucu: "",
   toplamKuruluGuc: "",
-  pue: "",
   projeSuresi: "",
   toplamInsaatAlani: "",
   durum: "",
+  durumEn: "",
 };
 
 export default function Projects() {
@@ -25,6 +27,26 @@ export default function Projects() {
     text: string;
   } | null>(null);
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUpload = async (file: File) => {
+    setUploading(true);
+    setMessage(null);
+    try {
+      const res = await api.uploads.upload(file);
+      setForm((prev) => ({ ...prev, projeResmi: res.url }));
+      setMessage({ type: "success", text: "Görsel başarıyla yüklendi." });
+    } catch (err) {
+      setMessage({
+        type: "error",
+        text: err instanceof Error ? err.message : "Dosya yüklenirken hata oluştu",
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const load = () => {
     setLoading(true);
@@ -38,6 +60,15 @@ export default function Projects() {
   useEffect(() => {
     load();
   }, []);
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -72,16 +103,18 @@ export default function Projects() {
     setEditingId(proje.id);
     setForm({
       projeAdi: proje.projeAdi ?? "",
+      projeAdiEn: proje.projeAdiEn ?? "",
       projeDetayi: proje.projeDetayi ?? "",
+      projeDetayiEn: proje.projeDetayiEn ?? "",
       projeResmi: proje.projeResmi ?? "",
       beyazAlan: proje.beyazAlan ?? "",
       sertifikasyon: proje.sertifikasyon ?? "",
       itGucu: proje.itGucu ?? "",
       toplamKuruluGuc: proje.toplamKuruluGuc ?? "",
-      pue: proje.pue ?? "",
       projeSuresi: proje.projeSuresi ?? "",
       toplamInsaatAlani: proje.toplamInsaatAlani ?? "",
       durum: proje.durum ?? "",
+      durumEn: proje.durumEn ?? "",
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -136,15 +169,99 @@ export default function Projects() {
               />
             </div>
             <div className="form-group">
-              <label className="form-label">Görsel URL</label>
+              <label className="form-label">Proje Adı (EN)</label>
               <input
                 className="form-control"
-                value={form.projeResmi}
-                onChange={(e) =>
-                  setForm({ ...form, projeResmi: e.target.value })
-                }
-                placeholder="Ör: /assets/proje1.jpg veya https://..."
+                value={form.projeAdiEn}
+                onChange={(e) => setForm({ ...form, projeAdiEn: e.target.value })}
+                placeholder="Ör: Gebze Data Center"
               />
+            </div>
+            <div className="form-group form-full-width">
+              <label className="form-label">Proje Görseli *</label>
+              <div
+                className={`dropzone ${isDragging ? "dragging" : ""} ${
+                  form.projeResmi ? "has-file" : ""
+                }`}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setIsDragging(true);
+                }}
+                onDragLeave={() => setIsDragging(false)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                  const file = e.dataTransfer.files[0];
+                  if (file) handleFileUpload(file);
+                }}
+                onClick={() => fileInputRef.current?.click()}
+                style={{
+                  border: "2px dashed var(--border)",
+                  borderRadius: "8px",
+                  padding: "20px",
+                  textAlign: "center",
+                  cursor: "pointer",
+                  backgroundColor: isDragging ? "rgba(0,0,0,0.05)" : "transparent",
+                  transition: "all 0.2s ease",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: "150px",
+                }}
+              >
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleFileUpload(file);
+                  }}
+                  style={{ display: "none" }}
+                  accept="image/*"
+                />
+                {uploading ? (
+                  <div style={{ color: "var(--text-secondary)" }}>Görsel yükleniyor...</div>
+                ) : form.projeResmi ? (
+                  <div style={{ position: "relative", width: "100%", maxWidth: "300px" }}>
+                    <img
+                      src={form.projeResmi}
+                      alt="Proje önizleme"
+                      style={{
+                        width: "100%",
+                        maxHeight: "150px",
+                        objectFit: "cover",
+                        borderRadius: "6px",
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setForm({ ...form, projeResmi: "" });
+                      }}
+                      style={{
+                        position: "absolute",
+                        top: "5px",
+                        right: "5px",
+                        padding: "5px 10px",
+                        fontSize: "12px",
+                        minHeight: "auto",
+                      }}
+                    >
+                      Kaldır
+                    </button>
+                  </div>
+                ) : (
+                  <div style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
+                    <p style={{ margin: "0 0 5px 0", fontWeight: "600" }}>
+                      Görseli buraya sürükleyin veya seçmek için tıklayın
+                    </p>
+                    <p style={{ margin: 0, fontSize: "12px" }}>PNG, JPG, JPEG, WEBP (Max: 5MB)</p>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="form-group form-full-width">
               <label className="form-label">Açıklama / Detay</label>
@@ -155,6 +272,17 @@ export default function Projects() {
                   setForm({ ...form, projeDetayi: e.target.value })
                 }
                 placeholder="Projenin detaylı açıklaması..."
+              />
+            </div>
+            <div className="form-group form-full-width">
+              <label className="form-label">Açıklama / Detay (EN)</label>
+              <textarea
+                className="form-control"
+                value={form.projeDetayiEn}
+                onChange={(e) =>
+                  setForm({ ...form, projeDetayiEn: e.target.value })
+                }
+                placeholder="Detailed description of the project in English..."
               />
             </div>
             <div className="form-group">
@@ -200,23 +328,14 @@ export default function Projects() {
               />
             </div>
             <div className="form-group">
-              <label className="form-label">PUE</label>
-              <input
-                className="form-control"
-                value={form.pue}
-                onChange={(e) => setForm({ ...form, pue: e.target.value })}
-                placeholder="Ör: 1.25"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Proje Süresi</label>
+              <label className="form-label">Proje Süresi (Ay) (Month)</label>
               <input
                 className="form-control"
                 value={form.projeSuresi}
                 onChange={(e) =>
                   setForm({ ...form, projeSuresi: e.target.value })
                 }
-                placeholder="Ör: 14 Ay"
+                placeholder="Ör: 14 Ay / 14 Months"
               />
             </div>
             <div className="form-group">
@@ -237,6 +356,15 @@ export default function Projects() {
                 value={form.durum}
                 onChange={(e) => setForm({ ...form, durum: e.target.value })}
                 placeholder="Ör: Tamamlandı veya Aktif"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Durum (EN)</label>
+              <input
+                className="form-control"
+                value={form.durumEn}
+                onChange={(e) => setForm({ ...form, durumEn: e.target.value })}
+                placeholder="Ör: Completed or Active"
               />
             </div>
           </div>

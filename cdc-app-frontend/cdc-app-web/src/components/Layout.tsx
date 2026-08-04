@@ -1,15 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Globe, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/useLanguage";
 
 export default function Layout() {
   const navigate = useNavigate();
   const { lang, t, setLang } = useLanguage();
   const [menuAcik, setMenuAcik] = useState(false);
+  const [isShrunk, setIsShrunk] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Ekran genişliği masaüstü kırılımına (1100px) ulaştığında mobil menüyü zorla kapatıyoruz
+      if (window.innerWidth > 1100) {
+        setMenuAcik(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Dropdown dışına tıklandığında menüyü kapatma
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Hysteresis tampon eşikli scroll listener: 120px aşağı kaydırılmadan küçülmez, 40px üstüne çıkmadan büyümez
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.scrollY || document.documentElement.scrollTop;
+          if (currentScroll > 120) {
+            setIsShrunk(true);
+          } else if (currentScroll < 40) {
+            setIsShrunk(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="site-wrapper">
-      <div className="navbar-bg">
+      <div
+        className={`navbar-bg${isShrunk ? " is-shrunk" : ""}`}
+      >
         <header className="navbar">
           <div
             className="logo"
@@ -28,10 +81,16 @@ export default function Layout() {
               {t.nav.hakkimizda}
             </NavLink>
             <NavLink
-              to="/cozumler"
+              to="/neden-biz"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               {t.nav.cozumler}
+            </NavLink>
+            <NavLink
+              to="/cozumler"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              {t.nav.yetkinlikler}
             </NavLink>
             <NavLink
               to="/projeler"
@@ -45,20 +104,50 @@ export default function Layout() {
             >
               {t.nav.haberler}
             </NavLink>
-            <span
-              className={`lang-selector ${lang === "tr" ? "" : "muted"}`}
-              onClick={() => setLang("tr")}
-              style={{ cursor: "pointer" }}
+            <NavLink
+              to="/iletisim"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
             >
-              TR
-            </span>
-            <span
-              className={`lang-selector ${lang === "en" ? "" : "muted"}`}
-              onClick={() => setLang("en")}
-              style={{ cursor: "pointer" }}
-            >
-              EN
-            </span>
+              {t.nav.iletisim}
+            </NavLink>
+
+            {/* Dünya İkonlu Dil Seçim Menüsü */}
+            <div className="lang-dropdown-wrapper" ref={langMenuRef}>
+              <button
+                type="button"
+                className="lang-dropdown-btn"
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                aria-label="Dil Seçimi"
+              >
+                <Globe size={19} />
+                <span className="lang-text">{lang.toUpperCase()}</span>
+                <ChevronDown size={14} className={`lang-chevron ${isLangOpen ? "open" : ""}`} />
+              </button>
+              {isLangOpen && (
+                <div className="lang-dropdown-menu">
+                  <button
+                    type="button"
+                    className={`lang-dropdown-item ${lang === "tr" ? "active" : ""}`}
+                    onClick={() => {
+                      setLang("tr");
+                      setIsLangOpen(false);
+                    }}
+                  >
+                    <span>TR - Türkçe</span>
+                  </button>
+                  <button
+                    type="button"
+                    className={`lang-dropdown-item ${lang === "en" ? "active" : ""}`}
+                    onClick={() => {
+                      setLang("en");
+                      setIsLangOpen(false);
+                    }}
+                  >
+                    <span>EN - English</span>
+                  </button>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Hamburger butonu */}
@@ -74,60 +163,72 @@ export default function Layout() {
         </header>
 
         {/* Mobil menü */}
-        {menuAcik && (
-          <nav className="mobile-nav">
-            <NavLink
-              to="/hakkimizda"
-              className={({ isActive }) => (isActive ? "active-link" : "")}
-              onClick={() => setMenuAcik(false)}
+        <nav className={`mobile-nav ${menuAcik ? "open" : ""}`}>
+          <NavLink
+            to="/hakkimizda"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setMenuAcik(false)}
+          >
+            {t.nav.hakkimizda}
+          </NavLink>
+          <NavLink
+            to="/neden-biz"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setMenuAcik(false)}
+          >
+            {t.nav.cozumler}
+          </NavLink>
+          <NavLink
+            to="/cozumler"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setMenuAcik(false)}
+          >
+            {t.nav.yetkinlikler}
+          </NavLink>
+          <NavLink
+            to="/projeler"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setMenuAcik(false)}
+          >
+            {t.nav.projeler}
+          </NavLink>
+          <NavLink
+            to="/haberler"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setMenuAcik(false)}
+          >
+            {t.nav.haberler}
+          </NavLink>
+          <NavLink
+            to="/iletisim"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setMenuAcik(false)}
+          >
+            {t.nav.iletisim}
+          </NavLink>
+          <div className="mobile-lang">
+            <button
+              type="button"
+              className={`mobile-lang-btn ${lang === "tr" ? "active" : ""}`}
+              onClick={() => {
+                setLang("tr");
+                setMenuAcik(false);
+              }}
             >
-              {t.nav.hakkimizda}
-            </NavLink>
-            <NavLink
-              to="/cozumler"
-              className={({ isActive }) => (isActive ? "active-link" : "")}
-              onClick={() => setMenuAcik(false)}
+              <Globe size={16} style={{ marginRight: 6 }} /> TR - Türkçe
+            </button>
+            <button
+              type="button"
+              className={`mobile-lang-btn ${lang === "en" ? "active" : ""}`}
+              onClick={() => {
+                setLang("en");
+                setMenuAcik(false);
+              }}
             >
-              {t.nav.cozumler}
-            </NavLink>
-            <NavLink
-              to="/projeler"
-              className={({ isActive }) => (isActive ? "active-link" : "")}
-              onClick={() => setMenuAcik(false)}
-            >
-              {t.nav.projeler}
-            </NavLink>
-            <NavLink
-              to="/haberler"
-              className={({ isActive }) => (isActive ? "active-link" : "")}
-              onClick={() => setMenuAcik(false)}
-            >
-              {t.nav.haberler}
-            </NavLink>
-            <div className="mobile-lang">
-              <span
-                className={`lang-selector ${lang === "tr" ? "" : "muted"}`}
-                onClick={() => {
-                  setLang("tr");
-                  setMenuAcik(false);
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                TR
-              </span>
-              <span
-                className={`lang-selector ${lang === "en" ? "" : "muted"}`}
-                onClick={() => {
-                  setLang("en");
-                  setMenuAcik(false);
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                EN
-              </span>
-            </div>
-          </nav>
-        )}
+              <Globe size={16} style={{ marginRight: 6 }} /> EN - English
+            </button>
+          </div>
+        </nav>
       </div>
 
       <main>
@@ -137,32 +238,18 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="footer-content">
           <div className="footer-contact-info">
-            <p className="contact-item">📍 {t.footer.adres}</p>
-            <p className="contact-item">
-              ✉️{" "}
-              <a href="mailto:info@cdcteknoloji.com.tr">
-                info@cdcteknoloji.com.tr
-              </a>
+            <p className="contact-item">{t.footer.adres}</p>
+            <p className="contact-item">{t.footer.eposta}</p>
+            <p className="contact-item">{t.footer.telefon}</p>
+            <p className="footer-policies">
+              <NavLink to="/kisisel-verilerin-korunmasi" style={{ color: "inherit", textDecoration: "none" }} className={({ isActive }) => (isActive ? "active-link" : "")}>{(t as any).footer.aydinlatmaMetni}</NavLink>
+              {" / "}
+              <NavLink to="/cerez-politikasi" style={{ color: "inherit", textDecoration: "none" }} className={({ isActive }) => (isActive ? "active-link" : "")}>{(t as any).footer.cerezPolitikasi}</NavLink>
             </p>
-            <p className="contact-item">📞 +90 212 502 3810</p>
-            <p className="contact-item">
-              🌐{" "}
-              <a
-                href="https://www.cdcteknoloji.com.tr"
-                target="_blank"
-                rel="noreferrer"
-              >
-                www.cdcteknoloji.com.tr
-              </a>
-            </p>
-            <p className="footer-policies">{t.footer.politika}</p>
           </div>
           <div className="footer-socials">
-            <a href="#" className="social-icon" aria-label="Instagram">
-              📸
-            </a>
-            <a href="#" className="social-icon" aria-label="LinkedIn">
-              💼
+            <a href="#" className="social-icon" aria-label="LinkedIn" style={{ display: "inline-flex", alignItems: "center" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
           </div>
         </div>

@@ -1,11 +1,17 @@
-import type { Haber, Proje } from "../types";
+import type { Haber, Proje, Message } from "../types";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:4101";
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
+  const isFormData = options?.body instanceof FormData;
+  const headers = new Headers(options?.headers);
+  if (!isFormData && !headers.has("Content-Type")) {
+    headers.set("Content-Type", "application/json");
+  }
+
   const res = await fetch(`${API_BASE}${path}`, {
     credentials: "include",
-    headers: { "Content-Type": "application/json", ...options?.headers },
+    headers,
     ...options,
   });
 
@@ -40,6 +46,7 @@ export const api = {
         method: "POST",
         body: JSON.stringify(data),
       }),
+    verify: () => request<{ username: string }>("/v1/auth/verify", { method: "GET" }),
   },
   projeler: {
     list: () => request<Proje[]>("/v1/projects/our-projects"),
@@ -72,5 +79,20 @@ export const api = {
       }),
     delete: (id: string) =>
       request<void>(`/v1/news/delete/${id}`, { method: "DELETE" }),
+  },
+  messages: {
+    list: () => request<Message[]>("/v1/messages"),
+    delete: (id: string) =>
+      request<void>(`/v1/messages/${id}`, { method: "DELETE" }),
+  },
+  uploads: {
+    upload: (file: File) => {
+      const formData = new FormData();
+      formData.append("image", file);
+      return request<{ url: string }>("/v1/uploads", {
+        method: "POST",
+        body: formData,
+      });
+    },
   },
 };

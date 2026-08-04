@@ -8,8 +8,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Cookie geçerli mi kontrol et
-    api.projeler
-      .list()
+    api.auth
+      .verify()
       .then(() => setIsAuthenticated(true))
       .catch(() => setIsAuthenticated(false))
       .finally(() => setLoading(false));

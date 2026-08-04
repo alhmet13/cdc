@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { api } from "../api/client";
@@ -11,6 +11,15 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const { setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

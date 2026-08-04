@@ -1,10 +1,26 @@
 import type { Haber, Proje } from "../types";
 
+// Eğer VITE_API_URL tanımlıysa onu kullan, yoksa yerel localhost'a düş.
+// Değer sadece "/api" ise, fetch fonksiyonu bunu otomatik olarak mevcut domainin arkasına ekler.
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:4101";
 
-async function request<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    headers: { "Content-Type": "application/json" },
+async function request<T>(
+  path: string,
+  options?: { method?: string; body?: Record<string, unknown> },
+): Promise<T> {
+  // URL'i oluştururken çift eğik çizgi (//) oluşmaması için küçük bir temizlik yapıyoruz
+  const cleanBase = API_BASE.endsWith("/") ? API_BASE.slice(0, -1) : API_BASE;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  const fullUrl = `${cleanBase}${cleanPath}`;
+
+  const res = await fetch(fullUrl, {
+    method: options?.method ?? "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json", // Sunucuya JSON beklediğimizi açıkça söylüyoruz
+    },
+    // POST isteklerinde body'yi stringify edip gönderiyoruz
+    body: options?.body ? JSON.stringify(options.body) : undefined,
   });
 
   if (!res.ok) {
@@ -29,5 +45,17 @@ export const api = {
   haberler: {
     list: () => request<Haber[]>("/v1/news/our-news"),
     get: (id: string) => request<Haber>(`/v1/news/find/${id}`),
+  },
+  messages: {
+    create: (data: {
+      adSoyad: string;
+      eposta: string;
+      konu: string;
+      mesaj: string;
+    }) =>
+      request<Record<string, unknown>>("/v1/messages", {
+        method: "POST",
+        body: data,
+      }),
   },
 };

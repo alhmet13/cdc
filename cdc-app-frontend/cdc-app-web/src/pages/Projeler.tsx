@@ -3,15 +3,27 @@ import { api } from "../api/client";
 import type { Proje } from "../types";
 import { useLanguage } from "../context/useLanguage";
 import type { Translations } from "../i18n/tr";
+import { SkeletonCard } from "../components/SkeletonCard"; // Skeleton kart yükleyicisini ekliyoruz
+import { Alert } from "../components/Alert"; // Hata durumları için modern alert kutusu
 
-function ProjeKart({ proje, t }: { proje: Proje; t: Translations }) {
+function ProjeKart({ proje, t, lang }: { proje: Proje; t: Translations; lang: string }) {
+  const name = lang === "en" ? (proje.projeAdiEn || proje.projeAdi) : proje.projeAdi;
+  const detail = lang === "en" ? (proje.projeDetayiEn || proje.projeDetayi) : proje.projeDetayi;
+  const status = lang === "en" ? (proje.durumEn || proje.durum) : proje.durum;
+
   const specs = [
     { label: t.projeler.beyazAlan, value: proje.beyazAlan },
     { label: t.projeler.sertifikasyon, value: proje.sertifikasyon },
     { label: t.projeler.itGucu, value: proje.itGucu },
     { label: t.projeler.toplamKuruluGuc, value: proje.toplamKuruluGuc },
-    { label: t.projeler.pue, value: proje.pue },
-    { label: t.projeler.projeSuresi, value: proje.projeSuresi },
+    { 
+      label: t.projeler.projeSuresi, 
+      value: proje.projeSuresi 
+        ? String(proje.projeSuresi).match(/ay|month/i) 
+          ? proje.projeSuresi 
+          : `${proje.projeSuresi} ${lang === 'en' ? 'months' : 'ay'}` 
+        : proje.projeSuresi 
+    },
     { label: t.projeler.insaatAlani, value: proje.toplamInsaatAlani },
   ].filter((s) => s.value);
 
@@ -20,28 +32,28 @@ function ProjeKart({ proje, t }: { proje: Proje; t: Translations }) {
       {proje.projeResmi && (
         <img
           src={proje.projeResmi}
-          alt={proje.projeAdi}
+          alt={name}
           className="proje-card-img"
         />
       )}
       <div className="proje-card-body">
         <div className="proje-card-header">
-          <h3>{proje.projeAdi}</h3>
-          {proje.durum && (
+          <h3>{name}</h3>
+          {status && (
             <span
               className={`durum-badge ${
-                ["tamamlandı", "zamanında teslim"].some((k) =>
-                  proje.durum!.toLowerCase().includes(k),
+                ["tamamlandı", "zamanında teslim", "completed", "delivered", "on-time", "on time", "ontime"].some((k) =>
+                  status.toLowerCase().includes(k),
                 )
                   ? "durum-yesil"
                   : "durum-sari"
               }`}
             >
-              {proje.durum}
+              {status}
             </span>
           )}
         </div>
-        {proje.projeDetayi && <p className="proje-desc">{proje.projeDetayi}</p>}
+        {detail && <p className="proje-desc">{detail}</p>}
         {specs.length > 0 && (
           <dl className="spec-list">
             {specs.map((s) => (
@@ -61,13 +73,16 @@ export default function Projeler() {
   const [projeler, setProjeler] = useState<Proje[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   useEffect(() => {
     api.projeler
       .list()
       .then(setProjeler)
-      .catch((e) => setError(e.message))
+      .catch((e) => {
+        console.error("[PROJECTS FETCH ERROR]", e);
+        setError("error");
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -75,19 +90,26 @@ export default function Projeler() {
     <div className="page-container">
       <h1 className="page-title">{t.projeler.baslik}</h1>
       <p className="page-subtitle">{t.projeler.altBaslik}</p>
-      {loading && <p className="status-msg">{t.projeler.yukleniyor}</p>}
+
+      {/* Hata durumunu zarif Alert kutusu ile bildiriyoruz */}
       {error && (
-        <p className="status-msg error">
-          {t.projeler.hata}: {error}
-        </p>
+        <Alert type="error" message={t.projeler.hata} />
       )}
+
+      {/* Boş veri durumunu bildiren Alert kutusu */}
       {!loading && !error && projeler.length === 0 && (
-        <p className="status-msg">{t.projeler.bos}</p>
+        <Alert type="info" message={t.projeler.bos} />
       )}
+
       <div className="grid-layout">
-        {projeler.map((proje) => (
-          <ProjeKart key={proje.id} proje={proje} t={t} />
-        ))}
+        {/* Yüklenirken düz yazı yerine 3 adet yan yana Skeleton loader gösteriyoruz */}
+        {loading
+          ? Array.from({ length: 3 }).map((_, idx) => (
+              <SkeletonCard key={idx} />
+            ))
+          : projeler.map((proje) => (
+              <ProjeKart key={proje.id} proje={proje} t={t} lang={lang} />
+            ))}
       </div>
     </div>
   );

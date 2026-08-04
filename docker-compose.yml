@@ -1,0 +1,62 @@
+services:
+  cdc-app-api:
+    build:
+      context: ./cdc-app-api
+      dockerfile: Dockerfile
+    container_name: cdc-app-api
+    ports:
+      - "4101:4101"
+    environment:
+      - PORT=4101
+      - NODE_ENV=production
+      - DATABASE_URL=${DATABASE_URL}
+      - DIRECT_URL=${DIRECT_URL}
+      - CORS_ORIGIN=${CORS_ORIGIN}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - ACCESS_PUBLIC_KEY_GLIB=${ACCESS_PUBLIC_KEY_GLIB}
+      - ACCESS_PRIVATE_KEY_GLIB=${ACCESS_PRIVATE_KEY_GLIB}
+      - REFRESH_PUBLIC_KEY_GLIB=${REFRESH_PUBLIC_KEY_GLIB}
+      - REFRESH_PRIVATE_KEY_GLIB=${REFRESH_PRIVATE_KEY_GLIB}
+      - ACCESS_TOKEN_EXPIRES_IN=${ACCESS_TOKEN_EXPIRES_IN}
+      - REFRESH_TOKEN_EXPIRES_IN=${REFRESH_TOKEN_EXPIRES_IN}
+      - GMAIL_USER=${GMAIL_USER}
+      - GMAIL_APP_PASSWORD=${GMAIL_APP_PASSWORD}
+    restart: always
+    networks:
+      - cdc-network
+    volumes:
+      - cdc-uploads:/app/uploads
+
+  cdc-app-web:
+    build:
+      context: ./cdc-app-frontend/cdc-app-web
+      dockerfile: Dockerfile
+    container_name: cdc-app-web
+    ports:
+      - "80:80"
+    depends_on:
+      - cdc-app-api
+    restart: always
+    networks:
+      - cdc-network
+
+  cdc-app-admin:
+    build:
+      context: ./cdc-app-admin
+      dockerfile: Dockerfile
+    container_name: cdc-app-admin
+    ports:
+      - "4102:80"
+    depends_on:
+      - cdc-app-api
+    restart: always
+    networks:
+      - cdc-network
+
+networks:
+  cdc-network:
+    driver: bridge
+
+volumes:
+  cdc-uploads:
