@@ -34,7 +34,7 @@ services:
       dockerfile: Dockerfile
     container_name: cdc-app-web
     ports:
-      - "80:80"
+      - "4103:80"
     depends_on:
       - cdc-app-api
     restart: always
