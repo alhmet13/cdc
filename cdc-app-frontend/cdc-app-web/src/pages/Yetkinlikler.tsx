@@ -9,6 +9,11 @@ const yetkinliklerGorseller = [
   "/akilli-isletim-dcim.jpg",
 ];
 
+interface YetkinlikMaddesi {
+  baslik: string;
+  tanim: string;
+}
+
 export default function Yetkinlikler() {
   const { t } = useLanguage();
 
@@ -42,14 +47,11 @@ export default function Yetkinlikler() {
       <section className="section-block mt-large mb-large">
         <div className="split-layout">
           <div className="split-column">
-            {leftColumn.map((item: any, idx: number) => (
+            {leftColumn.map((item: YetkinlikMaddesi, idx: number) => (
               <div key={idx} className="split-block">
                 <h3 className="split-block-title">{item.baslik}</h3>
                 <div className="split-block-image">
-                  <img
-                    src={yetkinliklerGorseller[idx]}
-                    alt={item.baslik}
-                  />
+                  <img src={yetkinliklerGorseller[idx]} alt={item.baslik} />
                 </div>
                 <p className="split-block-detail">{item.tanim}</p>
               </div>
@@ -59,14 +61,11 @@ export default function Yetkinlikler() {
           <div className="split-divider" />
 
           <div className="split-column">
-            {rightColumn.map((item: any, idx: number) => (
+            {rightColumn.map((item: YetkinlikMaddesi, idx: number) => (
               <div key={idx} className="split-block">
                 <h3 className="split-block-title">{item.baslik}</h3>
                 <div className="split-block-image">
-                  <img
-                    src={yetkinliklerGorseller[idx + 3]}
-                    alt={item.baslik}
-                  />
+                  <img src={yetkinliklerGorseller[idx + 3]} alt={item.baslik} />
                 </div>
                 <p className="split-block-detail">{item.tanim}</p>
               </div>
