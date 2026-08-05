@@ -11,8 +11,10 @@ export default function AdminHaberler() {
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const load = () => {
-    setLoading(true);
+  const load = (showLoading = true) => {
+    if (showLoading) {
+      setLoading(true);
+    }
     api.haberler
       .list()
       .then(setHaberler)
@@ -21,7 +23,7 @@ export default function AdminHaberler() {
   };
 
   useEffect(() => {
-    load();
+    load(false);
   }, []);
 
   const handleSubmit = async (e: FormEvent) => {
