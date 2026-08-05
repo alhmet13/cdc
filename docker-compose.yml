@@ -1,4 +1,22 @@
 services:
+  cdc-db:
+    image: postgres:15-alpine
+    container_name: cdc-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME:-cdc_db}
+    volumes:
+      - cdc-db-data:/var/lib/postgresql/data
+    networks:
+      - cdc-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   cdc-app-api:
     build:
       context: ./cdc-app-api
@@ -20,9 +38,15 @@ services:
       - REFRESH_PRIVATE_KEY_GLIB=${REFRESH_PRIVATE_KEY_GLIB}
       - ACCESS_TOKEN_EXPIRES_IN=${ACCESS_TOKEN_EXPIRES_IN}
       - REFRESH_TOKEN_EXPIRES_IN=${REFRESH_TOKEN_EXPIRES_IN}
-      - GMAIL_USER=${GMAIL_USER}
-      - GMAIL_APP_PASSWORD=${GMAIL_APP_PASSWORD}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_SECURE=${SMTP_SECURE}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
     restart: always
+    depends_on:
+      cdc-db:
+        condition: service_healthy
     networks:
       - cdc-network
     volumes:
@@ -60,3 +84,4 @@ networks:
 
 volumes:
   cdc-uploads:
+  cdc-db-data:
