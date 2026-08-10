@@ -1,4 +1,6 @@
 import { useLanguage } from "../context/useLanguage";
+import { LazyImage } from "../components/LazyImage";
+import SEO from "../components/SEO";
 
 interface CozumlerMadde {
   baslik: string;
@@ -24,16 +26,21 @@ const isBirligiGorseller = [
 ];
 
 export default function Cozumler() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div className="page-container cozumler-page">
+      <SEO
+        title="Bütüncül Veri Merkezi Çözümleri & EPC Liderliği"
+        description="Uçtan uca proje yönetimi, derin MEP uzmanlığı ve 150M+ USD tedarik hacmi ile kesintisiz kritik altyapı çözümleri."
+        keywords="veri merkezi çözümleri, Neden Biz, EPC liderliği, MEP uzmanlığı, proje yönetimi, değer mühendisliği"
+      />
       <h1 className="page-title">{t.cozumler.baslik}</h1>
       <p className="page-subtitle">{t.cozumler.altBaslik}</p>
 
       {/* Hero Görsel - Construction Envelope */}
       <div className="cozumler-hero-banner">
-        <img
+        <LazyImage
           src="/engineering-heritage-double-exposure.png"
           alt="CDC Teknoloji - Veri Merkezi İnşaat Sahası"
           className="cozumler-hero-img"
@@ -45,13 +52,13 @@ export default function Cozumler() {
         </div>
       </div>
 
-      {/* Değer Önerisi - Beyaz Arka Plan */}
-      <section className="section-block mt-large">
+      {/* Değer Önerisi - Açık Gri Arka Plan */}
+      <section className="section-block bg-light-band mt-large">
         <h2 className="section-title mb-large">
           {t.cozumler.degerOnerisi.baslik}
         </h2>
         <div className="deger-onerisi-hero-wrapper mb-large">
-          <img
+          <LazyImage
             src="/hero-saha-ekibi.jpg"
             alt="CDC Teknoloji - Bütüncül Uzmanlıkla Kritik Altyapı Çözümleri"
             className="deger-onerisi-hero-img"
@@ -60,7 +67,7 @@ export default function Cozumler() {
         <div className="grid-layout three-col gap-medium">
           {t.cozumler.degerOnerisi.maddeler.map(
             (item: CozumlerMadde, idx: number) => (
-              <div key={idx} className="solutions-white-card text-center">
+              <div key={idx} className="solutions-white-card">
                 <h3>{item.baslik}</h3>
                 <p>{item.tanim}</p>
               </div>
@@ -79,7 +86,7 @@ export default function Cozumler() {
             (item: CozumlerMadde, idx: number) => (
               <div key={idx} className="solutions-white-card">
                 <div className="solutions-card-img-wrapper">
-                  <img
+                  <LazyImage
                     src={degerYaratanGorseller[idx]}
                     alt={item.baslik}
                     className="solutions-card-img"
@@ -93,8 +100,8 @@ export default function Cozumler() {
         </div>
       </section>
 
-      {/* Tek Noktadan İş Birliği - Beyaz Arka Plan */}
-      <section className="section-block mt-large">
+      {/* Tek Noktadan İş Birliği - Açık Gri Arka Plan */}
+      <section className="section-block bg-light-band mt-large">
         <h2 className="section-title mb-large">
           {t.cozumler.tekNoktadanIsBirligi.baslik}
         </h2>
@@ -103,7 +110,7 @@ export default function Cozumler() {
             (item: CozumlerMadde, idx: number) => (
               <div key={idx} className="solutions-coop-card">
                 <div className="solutions-card-img-wrapper">
-                  <img
+                  <LazyImage
                     src={isBirligiGorseller[idx]}
                     alt={item.baslik}
                     className="solutions-card-img"
@@ -119,22 +126,11 @@ export default function Cozumler() {
         </div>
       </section>
 
-      {/* Teknik Kadro Yetkinliği - Beyaz Arka Plan */}
-      <section className="section-block mt-large mb-large">
+      {/* Teknik Kadro Yetkinliği - Açık Gri Arka Plan */}
+      <section className="section-block bg-light-band mt-large">
         <h2 className="section-title mb-medium">
           {t.cozumler.ekstraBilgiler[0].baslik}
         </h2>
-        <p
-          className="section-lead mb-small"
-          style={{
-            fontSize: "1.1rem",
-            color: "#475569",
-            lineHeight: "1.7",
-            marginBottom: "20px",
-          }}
-        >
-          {t.cozumler.ekstraBilgiler[0].tanim}
-        </p>
         <p
           className="section-lead mb-large"
           style={{
@@ -144,12 +140,12 @@ export default function Cozumler() {
             marginBottom: "32px",
           }}
         >
-          {t.cozumler.kadro.altBaslik}
+          {t.cozumler.ekstraBilgiler[0].tanim}
         </p>
 
         {/* Kadro Görseli */}
         <div className="cozumler-kadro-image-wrapper mb-large">
-          <img
+          <LazyImage
             src="/muhendislik-kadromuz.jpg"
             alt="CDC Teknoloji Seçkin Mühendislik Kadrosu"
             className="cozumler-kadro-img"
@@ -221,7 +217,7 @@ export default function Cozumler() {
                     <div className="solutions-kadro-exp-tag">
                       {[exp, fieldStaff]
                         .filter(Boolean)
-                        .join(exp.includes("ortalama") ? " ve " : " and ")}
+                        .join(lang === "tr" ? " Ve " : " And ")}
                     </div>
                   )}
                 </div>

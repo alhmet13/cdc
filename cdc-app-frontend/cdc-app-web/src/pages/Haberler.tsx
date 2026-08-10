@@ -4,6 +4,8 @@ import type { Haber } from "../types";
 import { useLanguage } from "../context/useLanguage";
 import { SkeletonCard } from "../components/SkeletonCard"; // Skeleton kart yükleyicimiz
 import { Alert } from "../components/Alert"; // Zarif Alert kutusu
+import { LazyImage } from "../components/LazyImage";
+import SEO from "../components/SEO";
 
 function HaberKart({ haber, lang }: { haber: Haber; lang: string }) {
   const name = lang === "en" ? (haber.haberAdiEn || haber.haberAdi) : haber.haberAdi;
@@ -12,7 +14,7 @@ function HaberKart({ haber, lang }: { haber: Haber; lang: string }) {
   return (
     <div className="card proje-card">
       {haber.haberResmi && (
-        <img
+        <LazyImage
           src={haber.haberResmi}
           alt={name}
           className="proje-card-img"
@@ -47,6 +49,11 @@ export default function Haberler() {
 
   return (
     <div className="page-container">
+      <SEO
+        title="Sektörel Haberler & Duyurular"
+        description="CDC Teknoloji ve veri merkezi sektörüne dair güncel gelişmeler, duyurular ve yenilikler."
+        keywords="veri merkezi haberleri, CDC Teknoloji duyurular, teknoloji haberleri, veri merkezi projeleri"
+      />
       <h1 className="page-title">{t.haberler.baslik}</h1>
       <p className="page-subtitle">{t.haberler.altBaslik}</p>
 

@@ -46,12 +46,12 @@ export const en: Translations = {
         {
           baslik: "Global Standards and Local Expertise",
           tanim:
-            "LEED Gold, Uptime Tier III/IV, TS50600, and EN50600 certified deliveries.",
+            "All projects are delivered fully certified in compliance with international standards including LEED Gold, Uptime Tier III/IV, TS50600, and EN50600.",
         },
         {
           baslik: "On-time and Seamless Delivery",
           tanim:
-            "Timelines and budgets secured with proven project management methodologies.",
+            "Project timelines and investment budgets are fully secured and delivered on schedule through proven project management methodologies.",
         },
       ],
     },
@@ -61,34 +61,34 @@ export const en: Translations = {
         {
           baslik: "Design and Engineering",
           tanim:
-            "Architectural, structural, and system design; Tier-III compliant engineering.",
+            "Architectural, structural, and system design processes are executed with engineering principles fully compliant with Tier-III standards.",
         },
         {
           baslik: "Construction",
           tanim:
-            "Construction of physical structure, shell, and security layers.",
+            "The physical structure, building shell, and multi-layered security perimeters are constructed to the highest durability standards.",
         },
         {
           baslik: "Electrical and Mechanical Infrastructure",
           tanim:
-            "End-to-end solutions in UPS, generators, cooling, and power distribution.",
+            "End-to-end integrated solutions are provided across UPS, generators, precision cooling, and power distribution systems.",
         },
         {
           baslik: "White Space and Commissioning",
           tanim:
-            "Rack installation, cable management, FAT/SAT tests, and certification.",
+            "Rack installation, structured cable management, comprehensive FAT/SAT testing, and certification processes are fully completed.",
         },
         {
           baslik: "Operations and Hardware Supply",
           tanim:
-            "24/7 NOC support, maintenance, SLA management, server, and network supply.",
+            "24/7 continuous NOC monitoring, preventive maintenance, SLA management, and enterprise hardware procurement are reliably provided.",
         },
       ],
     },
     projelerSummary: {
       baslik: "Our Projects",
       aciklama:
-        "We lead Turkey's digital transformation with our data center projects of over 20 MW installed IT power, Tier-III and TS EN50600 certification.",
+        "We lead Turkey's digital transformation with our data center projects of over 20 MW installed IT power, international and national certification.",
       link: "Examine All Our Projects",
     },
   },
@@ -112,7 +112,7 @@ export const en: Translations = {
       calisan: "Employees",
       projeler: "Completed Projects",
       alan: "Total Project Area",
-      veriMerkezi: "Active Data Center Projects",
+      veriMerkezi: "Active Projects",
     },
     misyon: {
       baslik: "Our Mission",
@@ -167,12 +167,12 @@ export const en: Translations = {
         {
           baslik: "EPC Leadership",
           tanim:
-            "Scope, timeline, and budget ownership; risk mitigation through proper management of contract models; project delivery as a prime contractor.",
+            "We minimize risks by managing contract models with scope, timeline, and budget discipline. As the prime contractor, we coordinate all engineering, procurement, and construction processes from a single center to guarantee turnkey project delivery.",
         },
         {
           baslik: "Deep MEP Expertise",
           tanim:
-            "Expertise in Mechanical, Electrical, and Extra-Low Voltage (ELV) systems; performance and efficiency optimization; ensuring infrastructure resilience.",
+            "With advanced engineering expertise in mechanical, electrical, and low-voltage systems, we maximize performance and energy efficiency. We ensure uninterrupted and secure operational continuity by providing infrastructure resilience tailored to critical facilities.",
         },
       ],
     },
@@ -248,16 +248,15 @@ export const en: Translations = {
     },
     kadro: {
       baslik: "Our Technical Capability Staff",
-      altBaslik:
-        "Expert engineer and field staff in electrical, mechanical, construction, white space, and testing and commissioning disciplines:",
+      altBaslik: "",
       toplam: "Total 450+ Employees",
       liste: [
-        "Electrical — 25+ engineers, average 5 years of data center experience, 35+ field staff.",
-        "Mechanical — 25+ engineers, average 4 years of data center experience, 35+ field staff.",
-        "Construction — 20+ engineers, average 4 years of data center experience, 20+ field staff.",
-        "White Space — 7+ engineers, average 7 years of data center experience, 10+ field staff.",
-        "Testing and Commissioning — 10+ engineers, average 8 years of data center experience, 15+ field staff.",
-        "Technical Office and Design — 35+ engineers, average 3 years of data center experience.",
+        "Electrical — 25+ engineers, Average 5 Years of Data Center Experience, 35+ Field Staff.",
+        "Mechanical — 25+ engineers, Average 4 Years of Data Center Experience, 35+ Field Staff.",
+        "Construction — 20+ engineers, Average 4 Years of Data Center Experience, 20+ Field Staff.",
+        "White Space — 7+ engineers, Average 7 Years of Data Center Experience, 10+ Field Staff.",
+        "Testing and Commissioning — 10+ engineers, Average 8 Years of Data Center Experience, 15+ Field Staff.",
+        "Technical Office and Design — 35+ engineers, Average 3 Years of Data Center Experience.",
       ],
     },
   },
@@ -300,8 +299,7 @@ export const en: Translations = {
   },
   projeler: {
     baslik: "References",
-    altBaslik:
-      "Outstanding reference projects realized in accordance with international standards.",
+    altBaslik: "",
     yukleniyor: "Loading...",
     hata: "Please check your network connection",
     bos: "No reference projects added yet.",

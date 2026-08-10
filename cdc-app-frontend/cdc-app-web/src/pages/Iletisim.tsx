@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "../context/useLanguage";
 import { api } from "../api/client";
 import { Alert } from "../components/Alert"; // Zarif Alert bileşenini ekliyoruz
+import SEO from "../components/SEO";
 
 export default function Iletisim() {
   const { t } = useLanguage();
@@ -50,6 +51,11 @@ export default function Iletisim() {
 
   return (
     <div className="page-container iletisim-page">
+      <SEO
+        title="İletişim & Proje Teklifi"
+        description="CDC Teknoloji uzman ekibi ile iletişime geçin, veri merkezi projeleriniz için teknik danışmanlık ve teklif alın."
+        keywords="veri merkezi iletişim, CDC Teknoloji adres, proje teklifi, veri merkezi danışmanlığı"
+      />
       <h1 className="page-title">{t.iletisim.baslik}</h1>
       <p className="page-subtitle">{t.iletisim.altBaslik}</p>
 
@@ -172,7 +178,7 @@ export default function Iletisim() {
       </section>
 
       {/* Konum / Harita - Açık Gri Arka Plan */}
-      <section className="section-block bg-light p-large border-radius-medium mt-large mb-large">
+      <section className="section-block bg-light-band mt-large">
         <h2 className="section-title mb-large">{t.iletisim.konum}</h2>
         <div className="map-container card" style={{ padding: 0, overflow: "hidden", height: "450px" }}>
           <iframe

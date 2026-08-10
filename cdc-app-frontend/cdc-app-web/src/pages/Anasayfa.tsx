@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
+import { LazyImage } from "../components/LazyImage";
+import SEO from "../components/SEO";
 
 interface AnasayfaMadde {
   baslik: string;
@@ -8,7 +10,7 @@ interface AnasayfaMadde {
 
 const serviceImages = [
   "/tasarim-muhendislik.jpg",
-  "/insaat.jpg",
+  "/insaat-v2.jpg",
   "/mep-ve-altyapi-muhendisligi.jpg",
   "/beyaz-alan-devreye-alma.jpg",
   "/isletme-donanim-temini.jpg",
@@ -17,8 +19,45 @@ const serviceImages = [
 export default function Anasayfa() {
   const { t } = useLanguage();
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.cevahirdatacenter.com/#organization",
+        "name": "Cevahir Data Center",
+        "legalName": "CDC Teknoloji - Cevahir Data Center",
+        "alternateName": ["CDC", "CDC Teknoloji", "Cevahir Veri Merkezi"],
+        "url": "https://www.cevahirdatacenter.com",
+        "logo": "https://www.cevahirdatacenter.com/image102.jpg",
+        "description": "Cevahir Data Center (CDC Teknoloji); Uptime sertifikalı uzman kadrosuyla Tier-III / Tier-IV veri merkezi tasarımı, inşaat, MEP mühendisliği ve anahtar teslim EPC çözümleri sunar.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": ["Turkish", "English"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.cevahirdatacenter.com/#website",
+        "url": "https://www.cevahirdatacenter.com",
+        "name": "Cevahir Data Center",
+        "alternateName": "CDC",
+        "publisher": {
+          "@id": "https://www.cevahirdatacenter.com/#organization"
+        }
+      }
+    ]
+  };
+
   return (
     <div className="home-page">
+      <SEO
+        title="Veri Merkezi Mühendisliği & Anahtar Teslim EPC Çözümleri"
+        description="Cevahir Data Center (CDC Teknoloji); Uptime sertifikalı uzman kadrosuyla Tier-III / Tier-IV veri merkezi tasarımı, inşaat, MEP mühendisliği ve anahtar teslim EPC çözümleri sunar."
+        keywords="Cevahir Data Center, CDC, CDC Teknoloji, Cevahir Veri Merkezi, veri merkezi, data center, EPC yüklenicisi, Tier III, MEP mühendisliği, hassas iklimlendirme, beyaz alan"
+        schema={organizationSchema}
+      />
       {/* Hero Section - Devasa Banner */}
       <section className="main-hero">
         <div className="hero-overlay">
@@ -87,7 +126,7 @@ export default function Anasayfa() {
             {/* Sağ Taraf: Kartlarla Aynı Yükseklikte Görsel */}
             <div className="why-us-image-side">
               <div className="why-us-image-wrapper">
-                <img
+                <LazyImage
                   src="/data_center_engineer_with_logo.png"
                   alt="CDC Teknoloji Veri Merkezi Mühendisi"
                 />
@@ -111,7 +150,7 @@ export default function Anasayfa() {
               (item: AnasayfaMadde, idx: number) => (
                 <div key={idx} className="card services-summary-card">
                   <div className="services-summary-card-image">
-                    <img src={serviceImages[idx]} alt={item.baslik} />
+                    <LazyImage src={serviceImages[idx]} alt={item.baslik} />
                   </div>
                   <div className="services-summary-card-content">
                     <h3>{item.baslik}</h3>
@@ -136,7 +175,7 @@ export default function Anasayfa() {
             </p>
           </div>
           <div className="projects-showcase-container mt-large">
-            <img
+            <LazyImage
               src="/projelerimiz-koleksiyon.jpg"
               alt="Projelerimiz Koleksiyon"
               className="projects-showcase-img"

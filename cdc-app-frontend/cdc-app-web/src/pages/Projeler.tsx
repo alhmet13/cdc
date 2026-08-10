@@ -5,6 +5,8 @@ import { useLanguage } from "../context/useLanguage";
 import type { Translations } from "../i18n/tr";
 import { SkeletonCard } from "../components/SkeletonCard"; // Skeleton kart yükleyicisini ekliyoruz
 import { Alert } from "../components/Alert"; // Hata durumları için modern alert kutusu
+import { LazyImage } from "../components/LazyImage";
+import SEO from "../components/SEO";
 
 function ProjeKart({ proje, t, lang }: { proje: Proje; t: Translations; lang: string }) {
   const name = lang === "en" ? (proje.projeAdiEn || proje.projeAdi) : proje.projeAdi;
@@ -30,7 +32,7 @@ function ProjeKart({ proje, t, lang }: { proje: Proje; t: Translations; lang: st
   return (
     <div className="card proje-card">
       {proje.projeResmi && (
-        <img
+        <LazyImage
           src={proje.projeResmi}
           alt={name}
           className="proje-card-img"
@@ -88,8 +90,15 @@ export default function Projeler() {
 
   return (
     <div className="page-container">
+      <SEO
+        title="Tamamlanan Veri Merkezi Projeleri & Referanslar"
+        description="Kamu Veri Merkezi, Hyperscaler ve Operatör ICT projeleri başta olmak üzere yüksek kapasiteli tamamlanan veri merkezi referanslarımız."
+        keywords="veri merkezi projeleri, referanslar, Kamu Veri Merkezi, Hyperscaler, ICT veri merkezi, Tier III projesi"
+      />
       <h1 className="page-title">{t.projeler.baslik}</h1>
-      <p className="page-subtitle">{t.projeler.altBaslik}</p>
+      {t.projeler.altBaslik && (
+        <p className="page-subtitle">{t.projeler.altBaslik}</p>
+      )}
 
       {/* Hata durumunu zarif Alert kutusu ile bildiriyoruz */}
       {error && (

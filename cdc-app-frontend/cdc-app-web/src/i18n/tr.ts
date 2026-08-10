@@ -44,12 +44,12 @@ export const tr = {
         {
           baslik: "Global Standartlar ve Yerel Uzmanlık",
           tanim:
-            "LEED Gold, Uptime Tier III/IV, TS50600 ve EN50600 sertifikalı teslimler.",
+            "Tüm projeler; LEED Gold, Uptime Tier III/IV, TS50600 ve EN50600 ulus\u00ADlara\u00ADra\u00ADsı stan\u00ADdart\u00ADla\u00ADrı\u00ADna tam uyumlu ve ser\u00ADti\u00ADfi\u00ADka\u00ADlı olarak teslim edilir.",
         },
         {
           baslik: "Zamanında ve Sorunsuz Teslim",
           tanim:
-            "Kanıtlanmış proje yönetimi metodolojileri ile güvence altına alınan takvimler ve bütçeler.",
+            "Kanıtlanmış proje yönetimi me\u00ADto\u00ADdo\u00ADlo\u00ADji\u00ADle\u00ADri ile proje takvimleri ve yatırım büt\u00ADçe\u00ADle\u00ADri eksiksiz şekilde gü\u00ADven\u00ADce altına alınır.",
         },
       ],
     },
@@ -59,32 +59,34 @@ export const tr = {
         {
           baslik: "Tasarım ve Mühendislik",
           tanim:
-            "Mimari, yapısal ve sistem tasarımı; Tier-III uyumlu mühendislik.",
+            "Mimari, ya\u00ADpı\u00ADsal ve sis\u00ADtem ta\u00ADsa\u00ADrı\u00ADmı sü\u00ADreç\u00ADle\u00ADri ulus\u00ADlara\u00ADra\u00ADsı Tier-III stan\u00ADdart\u00ADla\u00ADrı\u00ADna tam uyumlu mü\u00ADhen\u00ADdis\u00ADlik pren\u00ADsip\u00ADle\u00ADriy\u00ADle yü\u00ADrü\u00ADtü\u00ADlür.",
         },
         {
           baslik: "İnşaat",
-          tanim: "Fiziksel yapı, kabuk ve güvenlik katmanlarının inşası.",
+          tanim:
+            "Tesisin fi\u00ADzik\u00ADsel strük\u00ADtü\u00ADrü, bina ka\u00ADbu\u00ADğu ve çok kat\u00ADman\u00ADlı gü\u00ADven\u00ADlik alan\u00ADla\u00ADrı yük\u00ADsek da\u00ADya\u00ADnık\u00ADlı\u00ADlık stan\u00ADdart\u00ADla\u00ADrıy\u00ADla in\u00ADşa edilir.",
         },
         {
           baslik: "Elektrik ve Mekanik Altyapı",
-          tanim: "UPS, jeneratör, soğutma ve güç dağıtımında uçtan uca çözüm.",
+          tanim:
+            "UPS, je\u00ADne\u00ADra\u00ADtör, has\u00ADsas so\u00ADğut\u00ADma ve ke\u00ADsin\u00ADti\u00ADsiz güç da\u00ADğı\u00ADtım sis\u00ADtem\u00ADle\u00ADrin\u00ADde uç\u00ADtan uca en\u00ADteg\u00ADre çö\u00ADzüm\u00ADler su\u00ADnu\u00ADlur.",
         },
         {
           baslik: "Beyaz Alan ve Devreye Alma",
           tanim:
-            "Rack kurulumu, kablo yönetimi, FAT/SAT testleri ve sertifikasyon.",
+            "Rack ka\u00ADbin ku\u00ADru\u00ADlu\u00ADmu, ya\u00ADpı\u00ADsal kab\u00ADlo yö\u00ADne\u00ADti\u00ADmi, kap\u00ADsam\u00ADlı FAT/SAT test\u00ADle\u00ADri ve ser\u00ADti\u00ADfi\u00ADkas\u00ADyon sü\u00ADreç\u00ADle\u00ADri ek\u00ADsik\u00ADsiz ta\u00ADmam\u00ADla\u00ADnır.",
         },
         {
           baslik: "İşletme ve Donanım Temini",
           tanim:
-            "7/24 NOC desteği, bakım, SLA yönetimi, sunucu ve ağ tedariki.",
+            "7/24 ke\u00ADsin\u00ADti\u00ADsiz NOC iz\u00ADle\u00ADme, pe\u00ADri\u00ADyo\u00ADdik ba\u00ADkım, SLA yö\u00ADne\u00ADti\u00ADmi ve ku\u00ADrum\u00ADsal do\u00ADna\u00ADnım te\u00ADda\u00ADri\u00ADki gü\u00ADven\u00ADle sağ\u00ADla\u00ADnır.",
         },
       ],
     },
     projelerSummary: {
       baslik: "Projeler",
       aciklama:
-        "20 MW'ın üzerinde kurulu IT gücü, Tier-III ve TS EN50600 sertifikalı veri merkezi projeleriyle Türkiye'nin dijital dönüşümüne öncülük etmektedir.",
+        "20 MW'ın üzerinde kurulu IT gücü, uluslararası ve ulusal sertifikalı veri merkezi projeleriyle Türkiye'nin dijital dönüşümüne öncülük etmektedir.",
       link: "Tüm Projeleri İnceleyin",
     },
   },
@@ -105,7 +107,7 @@ export const tr = {
       calisan: "Çalışan",
       projeler: "Tamamlanan Proje",
       alan: "Toplam Proje Alanı",
-      veriMerkezi: "Aktif Veri Merkezi Projesi",
+      veriMerkezi: "Aktif Projeler",
     },
     misyon: {
       baslik: "Misyon",
@@ -154,17 +156,17 @@ export const tr = {
         {
           baslik: "Uçtan Uca Proje Yönetimi",
           tanim:
-            "İlk tasarımdan son teslim aşamasına kadar eşsiz kesinlik, operasyonel verimlilik ve kaliteden ödün vermeden çözüm sunulmaktadır. Tasarımdan devreye almaya kadar tek noktadan sorumluluk üstlenerek sorunsuz sistem entegrasyonu sağlanmaktadır.",
+            "İlk ta\u00ADsa\u00ADrım\u00ADdan son tes\u00ADlim a\u00ADşa\u00ADma\u00ADsı\u00ADna ka\u00ADdar eş\u00ADsiz ke\u00ADsin\u00ADlik, o\u00ADpe\u00ADras\u00ADyo\u00ADnel ve\u00ADrim\u00ADli\u00ADlik ve ka\u00ADli\u00ADte\u00ADden ö\u00ADdün ver\u00ADme\u00ADden çö\u00ADzüm su\u00ADnul\u00ADmak\u00ADta\u00ADdır. Ta\u00ADsa\u00ADrım\u00ADdan dev\u00ADre\u00ADye al\u00ADma\u00ADya ka\u00ADdar tek nok\u00ADta\u00ADdan so\u00ADrum\u00ADlu\u00ADluk üst\u00ADle\u00ADne\u00ADrek so\u00ADrun\u00ADsuz sis\u00ADtem en\u00ADteg\u00ADras\u00ADyo\u00ADnu sağ\u00ADlan\u00ADmak\u00ADta\u00ADdır.",
         },
         {
           baslik: "EPC Liderliği",
           tanim:
-            "Kapsam, zamanlama ve bütçe sahipliği; sözleşme modellerinin doğru yönetimiyle risk azaltma; ana yüklenici olarak proje teslimi.",
+            "Kap\u00ADsam, za\u00ADman\u00ADla\u00ADma ve büt\u00ADçe di\u00ADsip\u00ADli\u00ADniy\u00ADle söz\u00ADleş\u00ADme mo\u00ADdel\u00ADle\u00ADri\u00ADnin doğ\u00ADru yö\u00ADne\u00ADti\u00ADmi sağ\u00ADla\u00ADna\u00ADrak risk\u00ADler mi\u00ADni\u00ADmi\u00ADze edil\u00ADmek\u00ADte\u00ADdir. Ana yük\u00ADle\u00ADni\u00ADci o\u00ADla\u00ADrak tüm mü\u00ADhen\u00ADdis\u00ADlik, te\u00ADda\u00ADrik ve ya\u00ADpım sü\u00ADreç\u00ADle\u00ADri tek mer\u00ADkez\u00ADden ko\u00ADor\u00ADdi\u00ADne edi\u00ADle\u00ADrek anah\u00ADtar tes\u00ADlim pro\u00ADje tes\u00ADli\u00ADmi gü\u00ADven\u00ADce\u00ADye alı\u00ADnır.",
         },
         {
           baslik: "Derin MEP Uzmanlığı",
           tanim:
-            "Mekanik, Elektrik ve Zayıf Akım sistemlerinde uzmanlık; performans ve verimlilik optimizasyonu; altyapı dayanıklılığının sağlanması.",
+            "Me\u00ADka\u00ADnik, elek\u00ADtrik ve za\u00ADyıf akım sis\u00ADtem\u00ADle\u00ADrin\u00ADde i\u00ADle\u00ADri mü\u00ADhen\u00ADdis\u00ADlik uz\u00ADman\u00ADlı\u00ADğıy\u00ADla per\u00ADfor\u00ADmans ve ener\u00ADji ve\u00ADrim\u00ADli\u00ADli\u00ADği en üst dü\u00ADze\u00ADye çı\u00ADka\u00ADrıl\u00ADmak\u00ADta\u00ADdır. Kri\u00ADtik te\u00ADsis di\u00ADna\u00ADmik\u00ADle\u00ADri\u00ADne uy\u00ADgun alt\u00ADya\u00ADpı da\u00ADya\u00ADnık\u00ADlı\u00ADğı sağ\u00ADla\u00ADna\u00ADrak ke\u00ADsin\u00ADti\u00ADsiz ve gü\u00ADven\u00ADli o\u00ADpe\u00ADras\u00ADyo\u00ADnel sü\u00ADrek\u00ADli\u00ADlik su\u00ADnul\u00ADmak\u00ADta\u00ADdır.",
         },
       ],
     },
@@ -174,32 +176,32 @@ export const tr = {
         {
           baslik: "Kanıtlanmış Deneyim ve Ölçek Yetkinliği",
           tanim:
-            "Operasyonel sürekliliği kritik, büyük ölçekli tesisler başarıyla teslim edilmekte ve karmaşık tedarik zincirleri uçtan uca etkin şekilde yönetilmektedir.",
+            "O\u00ADpe\u00ADras\u00ADyo\u00ADnel sü\u00ADrek\u00ADli\u00ADli\u00ADği kri\u00ADtik, bü\u00ADyük öl\u00ADçek\u00ADli te\u00ADsis\u00ADler ba\u00ADşa\u00ADrıy\u00ADla tes\u00ADlim edil\u00ADmek\u00ADte ve kar\u00ADma\u00ADşık te\u00ADda\u00ADrik zin\u00ADcir\u00ADle\u00ADri uç\u00ADtan uca et\u00ADkin şe\u00ADkil\u00ADde yö\u00ADne\u00ADtil\u00ADmek\u00ADte\u00ADdir.",
         },
         {
           baslik: "Risk Yönetimi ve Sözleşme Uzmanlığı",
           tanim:
-            "Tüm sözleşme modellerine tam hâkimiyet sağlanmakta; proaktif risk yönetimi ile süreçlerdeki uyum, ilerleme ve tüm tarafların hakları güvence altına alınmaktadır.",
+            "Tüm söz\u00ADleş\u00ADme mo\u00ADdel\u00ADle\u00ADri\u00ADne tam hâ\u00ADki\u00ADmi\u00ADyet sağ\u00ADlan\u00ADmak\u00ADta; pro\u00ADak\u00ADtif risk yö\u00ADne\u00ADti\u00ADmi ile sü\u00ADreç\u00ADler\u00ADde\u00ADki u\u00ADyum, i\u00ADler\u00ADle\u00ADme ve tüm ta\u00ADraf\u00ADla\u00ADrın hak\u00ADla\u00ADrı gü\u00ADven\u00ADce al\u00ADtı\u00ADna alın\u00ADmak\u00ADta\u00ADdır.",
         },
         {
           baslik: "Maliyet Verimliliği ve Değer Mühendisliği",
           tanim:
-            "Tasarım ve malzeme optimizasyonlarıyla, performans ve güvenilirlikten ödün vermeksizin projelerde ölçülebilir maliyet tasarrufu sağlanmaktadır.",
+            "Ta\u00ADsa\u00ADrım ve mal\u00ADze\u00ADme op\u00ADti\u00ADmi\u00ADzas\u00ADyon\u00ADla\u00ADrıy\u00ADla, per\u00ADfor\u00ADmans ve gü\u00ADve\u00ADni\u00ADril\u00ADlik\u00ADten ö\u00ADdün ver\u00ADmek\u00ADsi\u00ADzin pro\u00ADje\u00ADler\u00ADde öl\u00ADçü\u00ADle\u00ADbi\u00ADlir ma\u00ADli\u00ADyet ta\u00ADsar\u00ADru\u00ADfu sağ\u00ADlan\u00ADmak\u00ADta\u00ADdır.",
         },
         {
           baslik: "Zamanında Devreye Alma",
           tanim:
-            "Entegre proje yönetimi metodolojileriyle takvimler netleştirilmekte, olası sapmalar erken aşamada tespit edilerek proaktif şekilde yönetilmektedir.",
+            "En\u00ADteg\u00ADre pro\u00ADje yö\u00ADne\u00ADti\u00ADmi me\u00ADto\u00ADdo\u00ADlo\u00ADji\u00ADle\u00ADriy\u00ADle tak\u00ADvim\u00ADler net\u00ADleş\u00ADti\u00ADril\u00ADmek\u00ADte, o\u00ADla\u00ADsı sap\u00ADma\u00ADlar er\u00ADken a\u00ADşa\u00ADma\u00ADda tes\u00ADpit edi\u00ADle\u00ADrek pro\u00ADak\u00ADtif şe\u00ADkil\u00ADde yö\u00ADne\u00ADtil\u00ADmek\u00ADte\u00ADdir.",
         },
         {
           baslik: "Uçtan Uca Kalite Yönetimi ve Sistem Güvenilirliği",
           tanim:
-            "İnşaattan sistem entegrasyonuna kadar sektörün en yüksek kalite standartları uygulanmakta, operasyonel süreklilik temel tasarım kriteri olarak benimsenmektedir.",
+            "İn\u00ADşa\u00ADat\u00ADtan sis\u00ADtem en\u00ADteg\u00ADras\u00ADyo\u00ADnu\u00ADna ka\u00ADdar sek\u00ADtö\u00ADrün en yük\u00ADsek ka\u00ADli\u00ADte stan\u00ADdart\u00ADla\u00ADrı uy\u00ADgu\u00ADlan\u00ADmak\u00ADta, o\u00ADpe\u00ADras\u00ADyo\u00ADnel sü\u00ADrek\u00ADli\u00ADlik te\u00ADmel ta\u00ADsa\u00ADrım kri\u00ADte\u00ADri o\u00ADla\u00ADrak be\u00ADnim\u00ADsen\u00ADmek\u00ADte\u00ADdir.",
         },
         {
           baslik: "Kesintisiz Operasyon ve Bakım Güvencesi",
           tanim:
-            "Devreye alma sonrasında tesis ömrünü ve enerji verimliliğini maksimum seviyede tutmak için 7/24 kesintisiz operasyonel yönetim, kestirimci bakım ve yüksek SLA güvencesi sunulmaktadır.",
+            "Dev\u00ADre\u00ADye al\u00ADma son\u00ADra\u00ADsın\u00ADda te\u00ADsis öm\u00ADrü\u00ADnü ve ener\u00ADji ve\u00ADrim\u00ADli\u00ADli\u00ADği\u00ADni mak\u00ADsi\u00ADmum se\u00ADvi\u00ADye\u00ADde tut\u00ADmak i\u00ADçin 7/24 ke\u00ADsin\u00ADti\u00ADsiz o\u00ADpe\u00ADras\u00ADyo\u00ADnel yö\u00ADne\u00ADtim, kes\u00ADti\u00ADrim\u00ADci ba\u00ADkım ve yük\u00ADsek SLA gü\u00ADven\u00ADce\u00ADsi su\u00ADnul\u00ADmak\u00ADta\u00ADdır.",
         },
       ],
     },
@@ -209,47 +211,46 @@ export const tr = {
         {
           baslik: "Tasarım",
           tanim:
-            "Zengin tasarım kaynakları, UPTIME ATD sertifikalı mühendislik kadrosu ve uluslararası ortaklıklarla CFD analizi ile BIM tabanlı disiplinler arası çakışma tespiti yürütülmektedir.",
+            "Zen\u00ADgin ta\u00ADsa\u00ADrım kay\u00ADnak\u00ADla\u00ADrı, UPTIME ATD ser\u00ADti\u00ADfi\u00ADka\u00ADlı mü\u00ADhen\u00ADdis\u00ADlik kad\u00ADro\u00ADsu ve ulus\u00ADlara\u00ADra\u00ADsı or\u00ADtak\u00ADlık\u00ADlar\u00ADla CFD a\u00ADna\u00ADli\u00ADzi ile BIM ta\u00ADban\u00ADlı di\u00ADsip\u00ADlin\u00ADler a\u00ADra\u00ADsı ça\u00ADkış\u00ADma tes\u00ADpi\u00ADti yü\u00ADrü\u00ADtül\u00ADmek\u00ADte\u00ADdir.",
         },
         {
           baslik: "Satın Alma",
           tanim:
-            "Tüm tedarik süreçleri tek noktadan yönetilerek şeffaf, izlenebilir ve zamanında teslimat garantisi sunulmaktadır.",
+            "Tüm te\u00ADda\u00ADrik sü\u00ADreç\u00ADle\u00ADri tek nok\u00ADta\u00ADdan yö\u00ADne\u00ADti\u00ADle\u00ADrek şef\u00ADfaf, iz\u00ADle\u00ADne\u00ADbi\u00ADlir ve za\u00ADma\u00ADnın\u00ADda tes\u00ADli\u00ADmat ga\u00ADran\u00ADti\u00ADsi su\u00ADnul\u00ADmak\u00ADta\u00ADdır.",
         },
         {
           baslik: "Danışmanlık",
           tanim:
-            "Uzman mimari ve mühendislik kadrosu ile projelerin ihtiyaçlarına özel bütünleşik danışmanlık çözümleri geliştirilmektedir.",
+            "Uz\u00ADman mi\u00ADma\u00ADri ve mü\u00ADhen\u00ADdis\u00ADlik kad\u00ADro\u00ADsu ile pro\u00ADje\u00ADle\u00ADrin ih\u00ADti\u00ADyaç\u00ADla\u00ADrı\u00ADna ö\u00ADzel bü\u00ADtün\u00ADle\u00ADşik da\u00ADnış\u00ADman\u00ADlık çö\u00ADzüm\u00ADle\u00ADri ge\u00ADliş\u00ADti\u00ADril\u00ADmek\u00ADte\u00ADdir.",
         },
         {
           baslik: "MEP ve Altyapı Mühendisliği",
           tanim:
-            "Mekanik, Elektrik ve Tesisat (MEP) sistemleri bütünsel bir mühendislik kurgusuyla tasarlanarak kesintisiz süreklilik ve yüksek enerji verimliliği sağlanmaktadır.",
+            "Me\u00ADka\u00ADnik, Elek\u00ADtrik ve Te\u00ADsi\u00ADsat (MEP) sis\u00ADtem\u00ADle\u00ADri bü\u00ADtün\u00ADsel bir mü\u00ADhen\u00ADdis\u00ADlik kur\u00ADgu\u00ADsuy\u00ADla ta\u00ADsar\u00ADla\u00ADna\u00ADrak ke\u00ADsin\u00ADti\u00ADsiz sü\u00ADrek\u00ADli\u00ADlik ve yük\u00ADsek ener\u00ADji ve\u00ADrim\u00ADli\u00ADli\u00ADği sağ\u00ADlan\u00ADmak\u00ADta\u00ADdır.",
         },
         {
           baslik: "Kurulum & Teslimat",
           tanim:
-            "Tecrübeli saha ekibi ve standartlaştırılmış EPC süreçleri ile kurulum ve teslimat aşamaları uçtan uca dijital olarak takip edilmektedir.",
+            "Tec\u00ADrü\u00ADbe\u00ADli sa\u00ADha e\u00ADki\u00ADbi ve stan\u00ADdart\u00ADlaş\u00ADtı\u00ADrıl\u00ADmış EPC sü\u00ADreç\u00ADle\u00ADri ile ku\u00ADru\u00ADlum ve tes\u00ADli\u00ADmat a\u00ADşa\u00ADma\u00ADla\u00ADrı uç\u00ADtan uca di\u00ADji\u00ADtal o\u00ADla\u00ADrak ta\u00ADkip edi\u00ADlmek\u00ADte\u00ADdir.",
         },
         {
           baslik: "Akıllı İşletim",
           tanim:
-            "Gelişmiş DCIM çözümleri tecrübesi ile tesislerde 7/24 kesintisiz bakım, onarım ve akıllı işletme desteği sunulmaktadır.",
+            "Ge\u00ADliş\u00ADmiş DCIM çö\u00ADzüm\u00ADle\u00ADri tec\u00ADrü\u00ADbe\u00ADsi ile te\u00ADsis\u00ADler\u00ADde 7/24 ke\u00ADsin\u00ADti\u00ADsiz ba\u00ADkım, o\u00ADna\u00ADrım ve a\u00ADkıl\u00ADlı iş\u00ADlet\u00ADme des\u00ADte\u00ADği su\u00ADnul\u00ADmak\u00ADta\u00ADdır.",
         },
       ],
     },
     kadro: {
       baslik: "Teknik Yetkinlik Kadrosu",
-      altBaslik:
-        "Elektrik, mekanik, inşaat, beyaz alan ile test ve devreye alma disiplinlerinde uzman mühendis ve saha kadrosu:",
+      altBaslik: "",
       toplam: "Toplam 450+ Çalışan",
       liste: [
-        "Elektrik — 25+ mühendis, ortalama 5 yıl veri merkezi tecrübesi, 35+ saha personeli.",
-        "Mekanik — 25+ mühendis, ortalama 4 yıl veri merkezi tecrübesi, 35+ saha personeli.",
-        "İnşaat — 20+ mühendis, ortalama 4 yıl veri merkezi tecrübesi, 20+ saha personeli.",
-        "Beyaz Alan — 7+ mühendis, ortalama 7 yıl veri merkezi tecrübesi, 10+ saha personeli.",
-        "Test ve Devreye Alma — 10+ mühendis, ortalama 8 yıl veri merkezi tecrübesi, 15+ saha personeli.",
-        "Teknik Ofis ve Dizayn — 35+ mühendis, ortalama 3 yıl veri merkezi tecrübesi.",
+        "Elektrik — 25+ mühendis, Ortalama 5 Yıl Veri Merkezi Tecrübesi, 35+ Saha Personeli.",
+        "Mekanik — 25+ mühendis, Ortalama 4 Yıl Veri Merkezi Tecrübesi, 35+ Saha Personeli.",
+        "İnşaat — 20+ mühendis, Ortalama 4 Yıl Veri Merkezi Tecrübesi, 20+ Saha Personeli.",
+        "Beyaz Alan — 7+ mühendis, Ortalama 7 Yıl Veri Merkezi Tecrübesi, 10+ Saha Personeli.",
+        "Test ve Devreye Alma — 10+ mühendis, Ortalama 8 Yıl Veri Merkezi Tecrübesi, 15+ Saha Personeli.",
+        "Teknik Ofis ve Dizayn — 35+ mühendis, Ortalama 3 Yıl Veri Merkezi Tecrübesi.",
       ],
     },
   },
@@ -291,8 +292,7 @@ export const tr = {
   },
   projeler: {
     baslik: "Referanslar",
-    altBaslik:
-      "Uluslararası standartlarda gerçekleştirilen öne çıkan referans projeler.",
+    altBaslik: "",
     yukleniyor: "Yükleniyor...",
     hata: "Lütfen ağınızı kontrol ediniz",
     bos: "Henüz referans proje eklenmemiş.",

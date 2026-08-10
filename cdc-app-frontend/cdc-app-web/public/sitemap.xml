@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.cevahirdatacenter.com/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/neden-biz</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/neden-biz?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/neden-biz?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/cozumler</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/cozumler?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/cozumler?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/projeler</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/projeler?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/projeler?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/hakkimizda</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/hakkimizda?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/hakkimizda?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/haberler</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/haberler?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/haberler?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/iletisim</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cevahirdatacenter.com/iletisim?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cevahirdatacenter.com/iletisim?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/kisisel-verilerin-korunmasi</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.cevahirdatacenter.com/cerez-politikasi</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
