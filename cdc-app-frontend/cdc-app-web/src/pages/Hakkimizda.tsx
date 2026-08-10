@@ -1,9 +1,10 @@
 import { useLanguage } from "../context/useLanguage";
 import { LazyImage } from "../components/LazyImage";
 import SEO from "../components/SEO";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export default function Hakkimizda() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div className="page-container hakkimizda-page">
@@ -12,6 +13,7 @@ export default function Hakkimizda() {
         description="Veri merkezi sektöründe çeyrek asrı aşan mühendislik tecrübesi, Uptime ATD sertifikalı uzman kadromuz ve kurumsal vizyonumuz hakkında bilgi edinin."
         keywords="hakkımızda, CDC Teknoloji, Cevahir Yapı, mühendislik mirası, Uptime ATD, veri merkezi uzmanlığı"
       />
+      <Breadcrumbs items={[{ label: lang === "en" ? "About Us" : "Hakkımızda" }]} />
       {/* Sayfa Başlığı ve Açıklaması */}
       <h1 className="page-title">{t.hakkimizda.baslik}</h1>
       <p className="page-subtitle">{t.hakkimizda.altBaslik}</p>

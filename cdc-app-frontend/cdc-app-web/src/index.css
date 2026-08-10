@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    GENEL SIFIRLAMA
    ============================================================ */
 *, *::before, *::after {
@@ -6,7 +6,7 @@
 }
 
 html {
-  overflow-x: clip; /* clip taşmayı engeller ama sticky'yi kırmaz (hidden kırar) */
+  overflow-x: clip; /* clip taÅŸmayÄ± engeller ama sticky'yi kÄ±rmaz (hidden kÄ±rar) */
 }
 
 body {
@@ -16,15 +16,16 @@ body {
   line-height: 1.7;
   background-color: #fdfdfd;
   color: #334155;
-  overflow-x: clip; /* clip taşmayı engeller ama sticky'yi kırmaz (hidden kırar) */
+  overflow-x: clip; /* clip taÅŸmayÄ± engeller ama sticky'yi kÄ±rmaz (hidden kÄ±rar) */
 }
 
 p {
   text-align: justify;
-  text-align-last: left;
-  hyphens: auto;
+  text-justify: inter-word;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
+  hyphens: auto;
+  text-align-last: left;
   word-break: normal;
   overflow-wrap: break-word;
   line-height: 1.7;
@@ -79,10 +80,10 @@ main {
 }
 
 /* ============================================================
-   MASAÜSTÜ: Shrink (sadece masaüstü)
+   MASAÃœSTÃœ: Shrink (sadece masaÃ¼stÃ¼)
    ============================================================ */
 @media (min-width: 769px) {
-  /* Küçülmüş durum (120px aşağı kaydırıldığında - sadece masaüstü) */
+  /* KÃ¼Ã§Ã¼lmÃ¼ÅŸ durum (120px aÅŸaÄŸÄ± kaydÄ±rÄ±ldÄ±ÄŸÄ±nda - sadece masaÃ¼stÃ¼) */
   .navbar-bg.is-shrunk {
     padding: 8px 60px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
@@ -116,7 +117,7 @@ main {
 }
 
 /* ============================================================
-   DÜNYA İKONLU DİL SEÇİM MENÜSÜ (DROPDOWN)
+   DÃœNYA Ä°KONLU DÄ°L SEÃ‡Ä°M MENÃœSÃœ (DROPDOWN)
    ============================================================ */
 .lang-dropdown-wrapper {
   position: relative;
@@ -197,7 +198,7 @@ main {
   font-weight: 700;
 }
 
-/* Mobil Dil Seçim Butonları */
+/* Mobil Dil SeÃ§im ButonlarÄ± */
 .mobile-lang {
   display: flex;
   gap: 12px;
@@ -263,7 +264,7 @@ main {
 }
 
 
-/* Mobil menü */
+/* Mobil menÃ¼ */
 .mobile-nav {
   display: flex;
   flex-direction: column;
@@ -273,9 +274,9 @@ main {
   opacity: 0;
   overflow: hidden;
   visibility: hidden;
-  background-color: #111111; /* %100 okunabilirlik için koyu karbon katı arka plan */
+  background-color: #111111; /* %100 okunabilirlik iÃ§in koyu karbon katÄ± arka plan */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 15px -20px -15px -20px; /* navbar-bg iç boşluklarını sıfırlayarak tam kenara yaslar */
+  margin: 15px -20px -15px -20px; /* navbar-bg iÃ§ boÅŸluklarÄ±nÄ± sÄ±fÄ±rlayarak tam kenara yaslar */
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.4s ease, visibility 0.4s, margin 0.35s ease-in-out;
 }
 
@@ -292,7 +293,7 @@ main {
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
-  padding: 14px 0; /* Dokunmatik parmak dostu (Touch-Friendly) hedef yüksekliği */
+  padding: 14px 0; /* Dokunmatik parmak dostu (Touch-Friendly) hedef yÃ¼ksekliÄŸi */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: color 0.2s ease, padding-left 0.2s ease;
 }
@@ -300,7 +301,7 @@ main {
 .mobile-nav a:hover,
 .mobile-nav a:active {
   color: #eb1c23;
-  padding-left: 8px; /* Zengin görsel geri bildirim için hafif sağa kayma */
+  padding-left: 8px; /* Zengin gÃ¶rsel geri bildirim iÃ§in hafif saÄŸa kayma */
 }
 
 .mobile-nav a:last-of-type {
@@ -430,10 +431,10 @@ main {
 }
 
 /* ============================================================
-   SAYFA GENEL DÜZENİ
+   SAYFA GENEL DÃœZENÄ°
    ============================================================ */
 /* ============================================================
-   SAYFA GENEL DÜZENİ
+   SAYFA GENEL DÃœZENÄ°
    ============================================================ */
 .page-container {
   max-width: 1200px;
@@ -491,7 +492,7 @@ main {
 }
 
 /* ============================================================
-   KART VE GRİD
+   KART VE GRÄ°D
    ============================================================ */
 .grid-layout {
   display: grid;
@@ -829,7 +830,7 @@ main {
 }
 
 /* ============================================================
-   ÇÖZÜMLER
+   Ã‡Ã–ZÃœMLER
    ============================================================ */
 .cozumler-grid {
   display: grid;
@@ -873,7 +874,7 @@ main {
   margin: 0;
 }
 
-/* ---- Veri Merkezi Çözümleri: hero visual ---- */
+/* ---- Veri Merkezi Ã‡Ã¶zÃ¼mleri: hero visual ---- */
 .solutions-hero-section {
   display: flex;
   justify-content: center;
@@ -1178,7 +1179,7 @@ main {
 }
 
 /* ============================================================
-   ADMIN PANELİ
+   ADMIN PANELÄ°
    ============================================================ */
 .admin-wrapper {
   min-height: 100vh;
@@ -1335,7 +1336,7 @@ main {
    ============================================================ */
 @media (max-width: 1100px) {
   .header-placeholder {
-    min-height: 110px; /* Mobil uyumlu daha dar placeholder yüksekliği */
+    min-height: 110px; /* Mobil uyumlu daha dar placeholder yÃ¼ksekliÄŸi */
   }
 
   .desktop-nav {
@@ -1379,43 +1380,43 @@ main {
     grid-template-columns: 1fr;
   }
 
-  /* ── MOBİL NAVBAR: Sticky + kompakt boyut ── */
+  /* â”€â”€ MOBÄ°L NAVBAR: Sticky + kompakt boyut â”€â”€ */
   .navbar-bg {
     padding: 10px 16px;
     width: 100%;
     max-width: 100vw;
   }
 
-  /* is-shrunk sınıfı mobilde etkisiz - navbar hep aynı boyutta */
+  /* is-shrunk sÄ±nÄ±fÄ± mobilde etkisiz - navbar hep aynÄ± boyutta */
   .navbar-bg.is-shrunk {
-    padding: 10px 16px; /* Değişmez - mobilde shrink yok */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Varsayılan gölge korunur */
+    padding: 10px 16px; /* DeÄŸiÅŸmez - mobilde shrink yok */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* VarsayÄ±lan gÃ¶lge korunur */
   }
 
-  /* Mobilde logo boyutu - shrink olsun olmasın sabit */
+  /* Mobilde logo boyutu - shrink olsun olmasÄ±n sabit */
   .logo img {
     height: 80px;
   }
 
   .navbar-bg.is-shrunk .logo img {
-    height: 80px; /* Mobilde logo boyutu değişmez */
-    transform: none; /* Ölçekleme yok */
+    height: 80px; /* Mobilde logo boyutu deÄŸiÅŸmez */
+    transform: none; /* Ã–lÃ§ekleme yok */
   }
 
-  /* Mobil menü margin'larını yeni padding'e uyumla */
+  /* Mobil menÃ¼ margin'larÄ±nÄ± yeni padding'e uyumla */
   .mobile-nav {
     margin: 10px -16px -10px -16px;
   }
 
-  /* ── HERO: Sabit yükseklik kaldırıldı, içerik kendi alanını belirler ── */
+  /* â”€â”€ HERO: Sabit yÃ¼kseklik kaldÄ±rÄ±ldÄ±, iÃ§erik kendi alanÄ±nÄ± belirler â”€â”€ */
   .main-hero {
-    height: auto;           /* Sabit 600px KESİNLİKLE KALDIRILDI */
-    min-height: 0;          /* Minimum yükseklik kısıtı yok */
+    height: auto;           /* Sabit 600px KESÄ°NLÄ°KLE KALDIRILDI */
+    min-height: 0;          /* Minimum yÃ¼kseklik kÄ±sÄ±tÄ± yok */
     position: relative;
   }
 
   .hero-overlay {
-    position: relative;     /* absolute→relative: içerik artık parent'ı iter, üst üste binmez */
+    position: relative;     /* absoluteâ†’relative: iÃ§erik artÄ±k parent'Ä± iter, Ã¼st Ã¼ste binmez */
     inset: auto;
     padding: 40px 16px 32px 16px;
   }
@@ -1426,7 +1427,7 @@ main {
   }
 
   .hero-content h1 {
-    font-size: 1.5rem;      /* Mobil dostu başlık boyutu */
+    font-size: 1.5rem;      /* Mobil dostu baÅŸlÄ±k boyutu */
     margin-bottom: 12px;
     max-width: 100%;
   }
@@ -1456,10 +1457,10 @@ main {
     box-sizing: border-box;
   }
 
-  /* ── STATS KARTLARI: Tek sütun, tam genişlik ── */
+  /* â”€â”€ STATS KARTLARI: Tek sÃ¼tun, tam geniÅŸlik â”€â”€ */
   .stats-grid.three-col,
   .stats-grid.four-col {
-    grid-template-columns: 1fr;  /* 3/4 sütun → 1 sütun */
+    grid-template-columns: 1fr;  /* 3/4 sÃ¼tun â†’ 1 sÃ¼tun */
     gap: 12px;
   }
 
@@ -1471,7 +1472,7 @@ main {
     font-size: 22px;
   }
 
-  /* ── İstatistik Pill'leri ── */
+  /* â”€â”€ Ä°statistik Pill'leri â”€â”€ */
   .hero-stats {
     gap: 8px;
   }
@@ -1481,18 +1482,18 @@ main {
     padding: 6px 12px;
   }
 
-  /* ── SECTION-GLOBAL: Padding daralt ── */
+  /* â”€â”€ SECTION-GLOBAL: Padding daralt â”€â”€ */
   .section-global {
     padding: 2rem 16px;
   }
 
   .global-container {
-    flex-direction: column;  /* Yan yana → alt alta */
+    flex-direction: column;  /* Yan yana â†’ alt alta */
     gap: 24px;
     align-items: stretch;
   }
 
-  /* ── WHY-US: Tek sütun, min-width sıfırla ── */
+  /* â”€â”€ WHY-US: Tek sÃ¼tun, min-width sÄ±fÄ±rla â”€â”€ */
   .why-us-section {
     padding: 40px 16px;
   }
@@ -1503,7 +1504,7 @@ main {
   }
 
   .why-us-grid {
-    grid-template-columns: 1fr; /* 2 sütun → 1 sütun */
+    grid-template-columns: 1fr; /* 2 sÃ¼tun â†’ 1 sÃ¼tun */
     gap: 12px;
   }
 
@@ -1512,11 +1513,11 @@ main {
   }
 
   .why-us-image-side {
-    min-width: 0;   /* Sabit min-width taşma yapıyordu */
+    min-width: 0;   /* Sabit min-width taÅŸma yapÄ±yordu */
     width: 100%;
   }
 
-  /* ── SERVICES SUMMARY: Tek sütun, min-width sıfırla ── */
+  /* â”€â”€ SERVICES SUMMARY: Tek sÃ¼tun, min-width sÄ±fÄ±rla â”€â”€ */
   .services-summary-container {
     flex-direction: column;
     gap: 24px;
@@ -1551,7 +1552,7 @@ main {
     text-align: center;
   }
 
-  /* ── SECTORS: Tek sütun ── */
+  /* â”€â”€ SECTORS: Tek sÃ¼tun â”€â”€ */
   .sectors-flex {
     flex-direction: column;
     align-items: stretch;
@@ -1564,7 +1565,7 @@ main {
     box-sizing: border-box;
   }
 
-  /* ── GENEL TİPOGRAFİ VE SPACING ── */
+  /* â”€â”€ GENEL TÄ°POGRAFÄ° VE SPACING â”€â”€ */
   .section-title {
     font-size: 1.4rem;
   }
@@ -1575,7 +1576,7 @@ main {
 }
 
 /* ============================================================
-   YENİ TEMA & MAKET ELEMENTLERİ (NEW COPY & ARCHITECTURE)
+   YENÄ° TEMA & MAKET ELEMENTLERÄ° (NEW COPY & ARCHITECTURE)
    ============================================================ */
 
 .hero-subtext {
@@ -1892,10 +1893,10 @@ main {
 }
 
 /* ============================================================
-   UI/UX MODERNİZASYON EK STİLLERİ
+   UI/UX MODERNÄ°ZASYON EK STÄ°LLERÄ°
    ============================================================ */
 
-/* Rota Hover ve Alt Çizgi Geçiş Animasyonları */
+/* Rota Hover ve Alt Ã‡izgi GeÃ§iÅŸ AnimasyonlarÄ± */
 .nav-links a {
   position: relative;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1920,7 +1921,7 @@ main {
   transform-origin: left;
 }
 
-/* Gelişmiş Alert Kutuları */
+/* GeliÅŸmiÅŸ Alert KutularÄ± */
 .alert-box {
   display: flex;
   align-items: flex-start;
@@ -1958,7 +1959,7 @@ main {
   margin-top: 1px;
 }
 
-/* İnce ve Modern Girdi Alanları */
+/* Ä°nce ve Modern Girdi AlanlarÄ± */
 .contact-form input,
 .contact-form textarea {
   background-color: #fdfdfd;
@@ -1973,7 +1974,7 @@ main {
   box-shadow: 0 0 0 3px rgba(235, 28, 35, 0.12);
 }
 
-/* Devre dışı bırakılmış (Yükleniyor) Buton Tasarımı */
+/* Devre dÄ±ÅŸÄ± bÄ±rakÄ±lmÄ±ÅŸ (YÃ¼kleniyor) Buton TasarÄ±mÄ± */
 .btn-primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -1981,7 +1982,7 @@ main {
   box-shadow: none !important;
 }
 
-/* Skeleton Loading (İskelet Yüklenici) Efektleri */
+/* Skeleton Loading (Ä°skelet YÃ¼klenici) Efektleri */
 .skeleton-card {
   background: #ffffff;
   border: 1px solid #f1f5f9;
@@ -2081,7 +2082,7 @@ main {
 }
 
 /* ============================================================
-   NEDEN CDC TEKNOLOJİ BÖLÜMÜ YENİ MODERN DÜZENİ
+   NEDEN CDC TEKNOLOJÄ° BÃ–LÃœMÃœ YENÄ° MODERN DÃœZENÄ°
    ============================================================ */
 .why-us-section {
   padding: 90px 24px;
@@ -2205,8 +2206,8 @@ main {
 .why-us-image-wrapper .lazy-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 16:9 çerçeveyi tam doldurması için cover */
-  object-position: center; /* Detayların merkezde kalması için ortalıyoruz */
+  object-fit: cover; /* 16:9 Ã§erÃ§eveyi tam doldurmasÄ± iÃ§in cover */
+  object-position: center; /* DetaylarÄ±n merkezde kalmasÄ± iÃ§in ortalÄ±yoruz */
   display: block;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2219,7 +2220,7 @@ main {
 .image-overlay-accent {
   position: absolute;
   inset: 0;
-  background: none; /* Görseldeki logoların ve detayların net okunması için karartma filtresini kaldırıyoruz */
+  background: none; /* GÃ¶rseldeki logolarÄ±n ve detaylarÄ±n net okunmasÄ± iÃ§in karartma filtresini kaldÄ±rÄ±yoruz */
   pointer-events: none;
 }
 
@@ -2249,7 +2250,7 @@ main {
 }
 
 /* ============================================================
-   VERİ MERKEZİ ÇÖZÜMLERİMİZ (HİZMET ALANLARIMIZ) YENİ DÜZENİ
+   VERÄ° MERKEZÄ° Ã‡Ã–ZÃœMLERÄ°MÄ°Z (HÄ°ZMET ALANLARIMIZ) YENÄ° DÃœZENÄ°
    ============================================================ */
 .services-summary-container {
   display: flex;
@@ -2291,7 +2292,7 @@ main {
   flex-direction: column;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-  padding: 0 !important; /* Dış .card dolgusu sıfırlanarak görselin tam genişlikte yer alması sağlandı */
+  padding: 0 !important; /* DÄ±ÅŸ .card dolgusu sÄ±fÄ±rlanarak gÃ¶rselin tam geniÅŸlikte yer almasÄ± saÄŸlandÄ± */
 }
 
 .services-summary-card:hover {
@@ -2301,7 +2302,7 @@ main {
 
 .services-summary-card-image {
   width: 100%;
-  aspect-ratio: 4 / 3; /* 4:3 oranı ile görsel alanı tam genişlikte çok daha büyük ve heybetli */
+  aspect-ratio: 4 / 3; /* 4:3 oranÄ± ile gÃ¶rsel alanÄ± tam geniÅŸlikte Ã§ok daha bÃ¼yÃ¼k ve heybetli */
   overflow: hidden;
   border-bottom: 3px solid #eb1c23;
   position: relative;
@@ -2328,7 +2329,7 @@ main {
 }
 
 .services-summary-card-content {
-  padding: 24px 20px 28px 20px; /* Dikey yükseklik optimize edilerek kutunun kareye yakın olması sağlandı */
+  padding: 24px 20px 28px 20px; /* Dikey yÃ¼kseklik optimize edilerek kutunun kareye yakÄ±n olmasÄ± saÄŸlandÄ± */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2416,7 +2417,7 @@ main {
 }
 
 /* ============================================================
-   HAKKIMIZDA & ÇÖZÜMLER SAYFALARI TEMİZ SINIF STİLLERİ
+   HAKKIMIZDA & Ã‡Ã–ZÃœMLER SAYFALARI TEMÄ°Z SINIF STÄ°LLERÄ°
    ============================================================ */
 .about-lead {
   font-size: 1.2rem;
@@ -2865,7 +2866,7 @@ main {
 }
 
 /* ============================================================
-   HERITAGE TIMELINE (Hakkımızda Hero Visual)
+   HERITAGE TIMELINE (HakkÄ±mÄ±zda Hero Visual)
    ============================================================ */
 .heritage-timeline-section {
   display: flex;
@@ -2925,7 +2926,7 @@ main {
   }
 }
 
-/* ---- Intro text + visual (uçtan uca uzmanlık) ---- */
+/* ---- Intro text + visual (uÃ§tan uca uzmanlÄ±k) ---- */
 .about-intro-flex {
   display: flex;
   align-items: center;
@@ -3015,7 +3016,15 @@ main {
     font-size: 0.9rem;
     padding: 16px 18px;
   }
+  
+
+  
+  .about-lead {
+    font-size: 1.05rem; /* Mobilde hecelemeyi ve yaslamayÄ± kolaylaÅŸtÄ±rmak iÃ§in biraz kÃ¼Ã§Ã¼ltÃ¼ldÃ¼ */
+    padding: 0 5px; /* Kenarlardan biraz nefes aldÄ±rÄ±r */
+  }
 }
+
 
 
 

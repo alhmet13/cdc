@@ -7,6 +7,7 @@ import { SkeletonCard } from "../components/SkeletonCard"; // Skeleton kart yük
 import { Alert } from "../components/Alert"; // Hata durumları için modern alert kutusu
 import { LazyImage } from "../components/LazyImage";
 import SEO from "../components/SEO";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 function ProjeKart({ proje, t, lang }: { proje: Proje; t: Translations; lang: string }) {
   const name = lang === "en" ? (proje.projeAdiEn || proje.projeAdi) : proje.projeAdi;
@@ -95,6 +96,7 @@ export default function Projeler() {
         description="Kamu Veri Merkezi, Hyperscaler ve Operatör ICT projeleri başta olmak üzere yüksek kapasiteli tamamlanan veri merkezi referanslarımız."
         keywords="veri merkezi projeleri, referanslar, Kamu Veri Merkezi, Hyperscaler, ICT veri merkezi, Tier III projesi"
       />
+      <Breadcrumbs items={[{ label: lang === "en" ? "Projects" : "Projelerimiz" }]} />
       <h1 className="page-title">{t.projeler.baslik}</h1>
       {t.projeler.altBaslik && (
         <p className="page-subtitle">{t.projeler.altBaslik}</p>

@@ -10,7 +10,7 @@ interface AnasayfaMadde {
 
 const serviceImages = [
   "/tasarim-muhendislik.jpg",
-  "/insaat-v2.jpg",
+  "/insaat-v2-highres.jpg",
   "/mep-ve-altyapi-muhendisligi.jpg",
   "/beyaz-alan-devreye-alma.jpg",
   "/isletme-donanim-temini.jpg",

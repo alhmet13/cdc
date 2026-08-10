@@ -6,6 +6,7 @@ import { SkeletonCard } from "../components/SkeletonCard"; // Skeleton kart yük
 import { Alert } from "../components/Alert"; // Zarif Alert kutusu
 import { LazyImage } from "../components/LazyImage";
 import SEO from "../components/SEO";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 function HaberKart({ haber, lang }: { haber: Haber; lang: string }) {
   const name = lang === "en" ? (haber.haberAdiEn || haber.haberAdi) : haber.haberAdi;
@@ -54,6 +55,7 @@ export default function Haberler() {
         description="CDC Teknoloji ve veri merkezi sektörüne dair güncel gelişmeler, duyurular ve yenilikler."
         keywords="veri merkezi haberleri, CDC Teknoloji duyurular, teknoloji haberleri, veri merkezi projeleri"
       />
+      <Breadcrumbs items={[{ label: lang === "en" ? "News" : "Haberler" }]} />
       <h1 className="page-title">{t.haberler.baslik}</h1>
       <p className="page-subtitle">{t.haberler.altBaslik}</p>
 

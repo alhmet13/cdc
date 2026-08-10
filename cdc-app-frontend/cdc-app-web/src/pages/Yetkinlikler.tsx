@@ -1,6 +1,7 @@
 import { useLanguage } from "../context/useLanguage";
 import { LazyImage } from "../components/LazyImage";
 import SEO from "../components/SEO";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 const yetkinliklerGorseller = [
   "/tr_capabilities_1.png",
@@ -17,7 +18,7 @@ interface YetkinlikMaddesi {
 }
 
 export default function Yetkinlikler() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const maddeler = t.yetkinlikler.maddeler;
   const rows = [];
@@ -32,6 +33,7 @@ export default function Yetkinlikler() {
         description="Mimari strüktür, hassas iklimlendirme, kesintisiz güç dağıtımı, beyaz alan kurulumu ve L0-L5 test-devreye alma yetkinliklerimizi inceleyin."
         keywords="veri merkezi yetkinlikleri, iklimlendirme, MEP, beyaz alan kurulumu, kesintisiz güç, L0-L5 test ve devreye alma"
       />
+      <Breadcrumbs items={[{ label: lang === "en" ? "Solutions" : "Çözümlerimiz" }]} />
       <h1 className="page-title">{t.yetkinlikler.baslik}</h1>
       <p className="page-subtitle">{t.yetkinlikler.altBaslik}</p>
 

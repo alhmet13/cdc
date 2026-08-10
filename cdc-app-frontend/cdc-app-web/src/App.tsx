@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
+import { useLanguage } from "./context/useLanguage";
 import "./index.css";
 
 // Sayfaları dinamik import (lazy load) ile tanımlayarak bundle boyutunu küçültüyoruz
@@ -14,13 +15,17 @@ const Haberler = lazy(() => import("./pages/Haberler"));
 const Iletisim = lazy(() => import("./pages/Iletisim"));
 const CerezPolitikasi = lazy(() => import("./pages/CerezPolitikasi"));
 const KisiselVerilerinKorunmasi = lazy(() => import("./pages/KisiselVerilerinKorunmasi"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Sayfa yüklenene kadar gösterilecek loading tasarımı
-const LoadingFallback = () => (
-  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh", fontSize: "1.2rem", color: "#666" }}>
-    Yükleniyor...
-  </div>
-);
+const LoadingFallback = () => {
+  const { lang } = useLanguage();
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh", fontSize: "1.2rem", color: "#666" }}>
+      {lang === "en" ? "Loading..." : "Yükleniyor..."}
+    </div>
+  );
+};
 
 function App() {
   return (
@@ -39,6 +44,7 @@ function App() {
             <Route path="/iletisim" element={<Iletisim />} />
             <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
             <Route path="/kisisel-verilerin-korunmasi" element={<KisiselVerilerinKorunmasi />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Suspense>

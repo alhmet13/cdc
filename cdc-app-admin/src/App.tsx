@@ -92,7 +92,7 @@ function AdminLayout() {
 
         <div className="sidebar-footer">
           <a
-            href="http://localhost:5173"
+            href="https://www.cdcteknoloji.com.tr"
             target="_blank"
             rel="noreferrer"
             className="sidebar-link"

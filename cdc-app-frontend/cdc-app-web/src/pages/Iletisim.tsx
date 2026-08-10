@@ -3,9 +3,10 @@ import { useLanguage } from "../context/useLanguage";
 import { api } from "../api/client";
 import { Alert } from "../components/Alert"; // Zarif Alert bileşenini ekliyoruz
 import SEO from "../components/SEO";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export default function Iletisim() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [formData, setFormData] = useState({
     adSoyad: "",
     eposta: "",
@@ -56,6 +57,7 @@ export default function Iletisim() {
         description="CDC Teknoloji uzman ekibi ile iletişime geçin, veri merkezi projeleriniz için teknik danışmanlık ve teklif alın."
         keywords="veri merkezi iletişim, CDC Teknoloji adres, proje teklifi, veri merkezi danışmanlığı"
       />
+      <Breadcrumbs items={[{ label: lang === "en" ? "Contact" : "İletişim" }]} />
       <h1 className="page-title">{t.iletisim.baslik}</h1>
       <p className="page-subtitle">{t.iletisim.altBaslik}</p>
 
