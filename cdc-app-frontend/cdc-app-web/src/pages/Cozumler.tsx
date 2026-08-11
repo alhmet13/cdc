@@ -1,6 +1,7 @@
 import { useLanguage } from "../context/useLanguage";
 import { LazyImage } from "../components/LazyImage";
 import SEO from "../components/SEO";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 interface CozumlerMadde {
   baslik: string;
@@ -35,6 +36,7 @@ export default function Cozumler() {
         description="Uçtan uca proje yönetimi, derin MEP uzmanlığı ve 150M+ USD tedarik hacmi ile kesintisiz kritik altyapı çözümleri."
         keywords="veri merkezi çözümleri, Neden Biz, EPC liderliği, MEP uzmanlığı, proje yönetimi, değer mühendisliği"
       />
+      <Breadcrumbs items={[{ label: lang === "en" ? "Why CDC" : "Neden CDC" }]} />
       <h1 className="page-title">{t.cozumler.baslik}</h1>
       <p className="page-subtitle">{t.cozumler.altBaslik}</p>
 

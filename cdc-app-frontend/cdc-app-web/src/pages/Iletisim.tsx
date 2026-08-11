@@ -58,8 +58,7 @@ export default function Iletisim() {
         keywords="veri merkezi iletişim, CDC Teknoloji adres, proje teklifi, veri merkezi danışmanlığı"
       />
       <Breadcrumbs items={[{ label: lang === "en" ? "Contact" : "İletişim" }]} />
-      <h1 className="page-title">{t.iletisim.baslik}</h1>
-      <p className="page-subtitle">{t.iletisim.altBaslik}</p>
+      <h1 className="page-title">{t.iletisim.altBaslik}</h1>
 
       <section className="section-block mt-large">
         <p className="section-lead mb-large">{t.iletisim.aciklama}</p>

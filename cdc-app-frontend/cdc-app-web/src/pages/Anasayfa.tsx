@@ -148,7 +148,7 @@ export default function Anasayfa() {
           <div className="services-summary-grid-block">
             {t.anasayfa.hizmetAlanlari.maddeler.map(
               (item: AnasayfaMadde, idx: number) => (
-                <div key={idx} className="card services-summary-card">
+                <Link key={idx} to="/cozumler" className="card services-summary-card card-link">
                   <div className="services-summary-card-image">
                     <LazyImage src={serviceImages[idx]} alt={item.baslik} />
                   </div>
@@ -156,7 +156,7 @@ export default function Anasayfa() {
                     <h3>{item.baslik}</h3>
                     <p>{item.tanim}</p>
                   </div>
-                </div>
+                </Link>
               ),
             )}
           </div>

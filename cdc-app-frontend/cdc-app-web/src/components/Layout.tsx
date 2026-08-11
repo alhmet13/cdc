@@ -60,6 +60,7 @@ export default function Layout() {
 
   return (
     <div className="site-wrapper">
+      <a href="#main-content" className="skip-to-content">{lang === "tr" ? "Ana içeriğe atla" : "Skip to main content"}</a>
       <div
         className={`navbar-bg${isShrunk ? " is-shrunk" : ""}`}
       >
@@ -231,7 +232,7 @@ export default function Layout() {
         </nav>
       </div>
 
-      <main>
+      <main id="main-content">
         <Outlet />
       </main>
 

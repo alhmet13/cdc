@@ -1,6 +1,17 @@
-﻿/* ============================================================
+/* ============================================================
    GENEL SIFIRLAMA
    ============================================================ */
+:root {
+  --font-primary: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
+  --color-primary: #eb1c23;
+  --color-primary-hover: #c9141b;
+  --color-text-main: #334155;
+  --color-text-heading: #0f172a;
+  --color-text-muted: #475569;
+  --color-bg-light: #fdfdfd;
+  --color-bg-section: #f1f5f9;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -11,11 +22,11 @@ html {
 
 body {
   margin: 0;
-  font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
+  font-family: var(--font-primary);
   font-size: 17px;
   line-height: 1.7;
-  background-color: #fdfdfd;
-  color: #334155;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
   overflow-x: clip; /* clip taÅŸmayÄ± engeller ama sticky'yi kÄ±rmaz (hidden kÄ±rar) */
 }
 
@@ -40,6 +51,40 @@ p {
 
 main {
   flex: 1 0 auto;
+}
+
+/* ============================================================
+   ACCESSIBILITY & UTILITIES
+   ============================================================ */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 12px 24px;
+  z-index: 100000;
+  transition: top 0.3s ease;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Corporate Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(235, 28, 35, 0.15);
+  border-radius: 4px;
+}
+
+.card-link:focus-visible {
+  border-radius: 12px;
 }
 
 /* ============================================================
@@ -1380,27 +1425,27 @@ main {
     grid-template-columns: 1fr;
   }
 
-  /* â”€â”€ MOBÄ°L NAVBAR: Sticky + kompakt boyut â”€â”€ */
+  /* ── MOBİL NAVBAR: Dynamic Sticky Shrink ── */
   .navbar-bg {
-    padding: 10px 16px;
+    padding: 12px 16px;
     width: 100%;
     max-width: 100vw;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
   }
 
-  /* is-shrunk sÄ±nÄ±fÄ± mobilde etkisiz - navbar hep aynÄ± boyutta */
   .navbar-bg.is-shrunk {
-    padding: 10px 16px; /* DeÄŸiÅŸmez - mobilde shrink yok */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* VarsayÄ±lan gÃ¶lge korunur */
+    padding: 6px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
-  /* Mobilde logo boyutu - shrink olsun olmasÄ±n sabit */
   .logo img {
-    height: 80px;
+    height: 105px;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .navbar-bg.is-shrunk .logo img {
-    height: 80px; /* Mobilde logo boyutu deÄŸiÅŸmez */
-    transform: none; /* Ã–lÃ§ekleme yok */
+    height: 68px;
+    transform: scale(0.95);
   }
 
   /* Mobil menÃ¼ margin'larÄ±nÄ± yeni padding'e uyumla */
@@ -2563,6 +2608,23 @@ main {
   .cozumler-hero-logo {
     height: 48px;
   }
+  
+
+  
+  p {
+    text-align: left;
+    text-justify: auto;
+  }
+
+  .about-lead {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: left;
+    text-justify: auto;
+    font-weight: 400;
+    color: #334155;
+    padding: 0;
+  }
 }
 
 .deger-onerisi-hero-wrapper {
@@ -3024,7 +3086,3 @@ main {
     padding: 0 5px; /* Kenarlardan biraz nefes aldÄ±rÄ±r */
   }
 }
-
-
-
-
